@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VitaPure+ Programs | Transformative Organic Wellness Journeys</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary: #3D9970;
+            --primary-dark: #2E7D32;
+            --primary-light: rgba(61, 153, 112, 0.1);
+            --secondary: #FFD166;
+            --secondary-dark: #E6B84C;
+            --accent: #FF6B6B;
+            --accent-dark: #E64A4A;
+            --light: #F8F9FA;
+            --dark: #1A3E2F;
+            --darker: #0F261C;
+            --text: #212529;
+            --text-light: #6C757D;
+            --white: #FFFFFF;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.15);
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: var(--white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline {
+            background: rgb(146, 168, 141);
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--darker);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .preloader .loader {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 1s ease-in-out infinite;
+            margin-bottom: 1.5rem;
+        }
+
+        .preloader-text {
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .preloader-progress {
+            width: 200px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0;
+            background: var(--gradient-primary);
+            transition: width 0.4s ease;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-sm);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 5%;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .logo-img {
+            margin-right: 10px;
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient-primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        /* Programs Hero Section */
+        .programs-hero {
+            background: linear-gradient(135deg, rgba(61, 153, 112, 0.85) 0%, rgba(46, 125, 50, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 80vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 5%;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .programs-hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, var(--light), transparent);
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .programs-hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .programs-hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Program Categories */
+        .program-categories {
+            padding: 5rem 5%;
+            background-color: var(--white);
+            position: relative;
+        }
+
+        .categories-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .category-btn {
+            padding: 1rem 2rem;
+            background: transparent;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .category-btn.active {
+            color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .category-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        .category-btn:hover:not(.active) {
+            color: var(--text);
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        /* Programs Grid */
+        .programs-section {
+            padding: 6rem 5%;
+            background-color: var(--light);
+            position: relative;
+        }
+
+        .programs-container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .program-card {
+            background-color: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .program-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--gradient-accent);
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 1;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .program-image {
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .program-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.7) 100%);
+            z-index: 1;
+        }
+
+        .program-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .program-card:hover .program-image img {
+            transform: scale(1.1);
+        }
+
+        .program-content {
+            padding: 2.5rem;
+            position: relative;
+        }
+
+        .program-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            transition: var(--transition);
+        }
+
+        .program-card:hover .program-title {
+            color: var(--primary);
+        }
+
+        .program-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .program-price span {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .program-features {
+            margin-bottom: 2rem;
+        }
+
+        .program-feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .program-feature i {
+            color: var(--black);
+            margin-right: 12px;
+            font-size: 1rem;
+            margin-top: 3px;
+        }
+
+        .program-feature span {
+            color: var(--black);
+            font-size: 0.95rem;
+        }
+
+        .program-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--gradient-primary);
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .program-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .program-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .program-btn:hover::before {
+            width: 100%;
+        }
+
+        /* Program Spotlight */
+        .spotlight-section {
+            padding: 8rem 5%;
+            background: var(--gradient-primary);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .spotlight-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .spotlight-content {
+            flex: 1;
+            min-width: 350px;
+        }
+
+        .spotlight-content h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .spotlight-content p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .spotlight-image {
+            flex: 1;
+            min-width: 350px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transform: perspective(1000px) rotateY(-10deg);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .spotlight-image:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        .spotlight-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .spotlight-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 8rem 5%;
+            background-color: var(--white);
+            position: relative;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-slider {
+            position: relative;
+            overflow: hidden;
+            margin: 3rem auto 0;
+        }
+
+        .testimonials-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-slide {
+            min-width: 100%;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+
+        .testimonial-card {
+            background-color: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-card::before {
+            content: '\f10d';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--primary);
+            opacity: 0.1;
+            font-size: 8rem;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 0;
+            line-height: 1;
+        }
+
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 2rem;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1.5rem;
+            border: 3px solid var(--primary);
+            padding: 3px;
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .author-info h4 {
+            color: var(--dark);
+            margin-bottom: 0.3rem;
+            font-size: 1.3rem;
+        }
+
+        .author-info p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .rating {
+            color: var(--secondary);
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 3rem;
+            gap: 1rem;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            background-color: #ddd;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .slider-dot.active {
+            background: var(--gradient-primary);
+            transform: scale(1.2);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 8rem 5%;
+            background-color: var(--light);
+            text-align: center;
+            position: relative;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .cta-section p {
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--darker);
+            color: var(--white);
+            padding: 5rem 5% 2rem;
+            position: relative;
+        }
+
+        .footer-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--gradient-primary);
+        }
+
+        .footer-col p {
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            opacity: 0.8;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .footer-links i {
+            margin-right: 10px;
+            font-size: 0.8rem;
+        }
+
+        .footer-newsletter-form {
+            display: flex;
+            margin-top: 1.5rem;
+        }
+
+        .footer-newsletter-form input {
+            flex: 1;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+        }
+
+        .footer-newsletter-form input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-newsletter-form button {
+            padding: 0 1.2rem;
+            background: var(--gradient-primary);
+            color: var(--white);
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .footer-newsletter-form button:hover {
+            opacity: 0.9;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .programs-hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .programs-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            
+            .spotlight-container {
+                flex-direction: column;
+            }
+            
+            .spotlight-image {
+                transform: none;
+                margin-top: 3rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--white);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                transition: var(--transition);
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .programs-hero {
+                height: 70vh;
+                min-height: 600px;
+                background-attachment: scroll;
+            }
+            
+            .programs-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .category-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .programs-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .program-card {
+                padding: 2rem;
+            }
+            
+            .program-title {
+                font-size: 1.6rem;
+            }
+
+            .spotlight-content h2 {
+                font-size: 2.2rem;
+            }
+
+            .cta-section h2 {
+                font-size: 2.2rem;
+            }
+
+            .testimonial-card {
+                padding: 2rem;
+            }
+
+            .testimonial-author {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .author-avatar {
+                margin-bottom: 1rem;
+                margin-right: 0;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.8s;
+        }
+
+        /* Floating Elements */
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .floating-element {
+            position: absolute;
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.15;
+            animation: float 15s infinite linear;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="loader"></div>
+        <div class="preloader-text">Loading VitaPure+</div>
+        <div class="preloader-progress">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <div class="logo-img">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <span>VitaPure+</span>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="programs.html" class="active">Programs</a></li>
+                <li><a href="about.html">Experts</a></li>
+                <li><a href="testimonials.html">Results</a></li>
+                <li><a href="blog.html">Knowledge</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="programs/" class="btn btn-primary">Join Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Programs Hero Section -->
+    <section class="programs-hero">
+        <div class="hero-content">
+            <h1 class="animate">Transformative Wellness Programs</h1>
+            <p class="animate delay-1">Our premium organic programs are scientifically designed to deliver life-changing results at the cellular level</p>
+            <div class="btn-group animate delay-2">
+                <a href="#programs" class="btn btn-primary">Explore Programs</a>
+                <a href="#quiz" class="btn btn-outline">Take Our Quiz</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Categories -->
+    <section class="program-categories">
+        <div class="categories-container">
+            <div class="section-title">
+                <h2>Find Your Perfect Program</h2>
+                <p>Select a category to discover the ideal wellness journey for your goals</p>
+            </div>
+            <div class="category-tabs">
+                <button class="category-btn active" data-category="all">All Programs</button>
+                <button class="category-btn" data-category="detox">Detox & Cleanse</button>
+                <button class="category-btn" data-category="weight">Weight Management</button>
+                <button class="category-btn" data-category="energy">Energy Boost</button>
+                <button class="category-btn" data-category="longevity">Longevity</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Grid -->
+    <section class="programs-section" id="programs">
+        <div class="programs-container">
+            <div class="programs-grid">
+                <!-- Program 1 -->
+                <div class="program-card animate" data-category="detox">
+                    <div class="program-badge">Most Popular</div>
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Cellular Detox Program">
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-title">Cellular Detox</h3>
+                        <div class="program-price">$1,497 <span>/ 6 weeks</span></div>
+                        <div class="program-features">
+                            <div class="program-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Deep cellular cleansing protocol</span>
+                            </div>
+                            <div class="program-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Organic detox supplements</span>
+                            </div>
+                            <div class="program-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Daily guided detox routines</span>
+                            </div>
+                            <div class="program-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Pre/post lab testing included</span>
+                            </div>
+                        </div>
+                        <button class="program-btn">Enroll Now</button>
+                    </div>
+                </div>
+                
+                <!-- Program 2 -->
+                <div class="program-card animate delay-1" data-category="weight">
+                    <div class="program-badge">New</div>
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Metabolic Reset Program">
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-title">Metabolic Reset</h3>
+                        <div class="program-price">$2,497 <span>/ 3 months</span></div>
+                        <div class="program-features">
+                            <div class="program-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Comprehensive metabolic testing</span>
+                            </div>
+                            <div class="program-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Personalized organic nutrition</span>
+                            </div>
+                            <div class="program-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Genetic analysis included</span>
+                            </div>
+                            <div class="program-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Quarterly progress assessments</span>
+                            </div>
+                        </div>
+                        <button class="program-btn">Enroll Now</button>
+                    </div>
+                </div>
+                
+                <!-- Program 3 -->
+                <div class="program-card animate delay-2" data-category="energy">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Energy Revival Program">
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-title">Energy Revival</h3>
+                        <div class="program-price">$1,797 <span>/ 8 weeks</span></div>
+                        <div class="program-features">
+                            <div class="program-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Mitochondrial support protocol</span>
+                            </div>
+                            <div class="program-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Adrenal fatigue recovery</span>
+                            </div>
+                            <div class="program-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Sleep optimization plan</span>
+                            </div>
+                            <div class="program-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Energy-boosting supplements</span>
+                            </div>
+                        </div>
+                        <button class="program-btn">Enroll Now</button>
+                    </div>
+                </div>
+                
+                <!-- Program 4 -->
+                <div class="program-card animate delay-3" data-category="longevity">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Longevity Blueprint">
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-title">Longevity Blueprint</h3>
+                        <div class="program-price">$3,997 <span>/ 6 months</span></div>
+                        <div class="program-features">
+                            <div class="program-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Comprehensive aging biomarkers</span>
+                            </div>
+                            <div class="program-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Telomere support protocol</span>
+                            </div>
+                            <div class="program-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Advanced genetic testing</span>
+                            </div>
+                            <div class="program-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Quarterly progress assessments</span>
+                            </div>
+                        </div>
+                        <button class="program-btn">Enroll Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Spotlight -->
+    <section class="spotlight-section">
+        <div class="spotlight-container">
+            <div class="spotlight-content animate">
+                <h2>Our Signature Detox Program</h2>
+                <p>The Cellular Detox Program is our most transformative offering, combining cutting-edge science with ancient detoxification wisdom. This 6-week intensive cleanse targets toxins at the cellular level while supporting all seven pathways of elimination.</p>
+                <div class="program-features" style="margin-bottom: 2.5rem;">
+                    <div class="program-feature" style="color: var(--white); margin-bottom: 1rem;">
+                        <i class="fas fa-check"></i>
+                        <span>Includes comprehensive pre/post toxin testing</span>
+                    </div>
+                    <div class="program-feature" style="color: var(--white); margin-bottom: 1rem;">
+                        <i class="fas fa-check"></i>
+                        <span>Daily guided protocols with 24/7 expert support</span>
+                    </div>
+                    <div class="program-feature" style="color: var(--white);">
+                        <i class="fas fa-check"></i>
+                        <span>100% organic supplements and meal plans</span>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                    <a href="#" class="btn btn-outline">View Testimonials</a>
+                </div>
+            </div>
+            <div class="spotlight-image animate delay-1">
+                <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Cellular Detox Program">
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <div class="testimonials-container">
+            <div class="section-title">
+                <h2>Real Transformations</h2>
+                <p>Hear from members who experienced life-changing results</p>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonials-track">
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <p>"After years of struggling with chronic fatigue and digestive issues, the VitaPure+ Cellular Detox program completely changed my life. Within just 6 weeks, my energy levels skyrocketed and my digestion normalized. The organic protocols were easy to follow and the results were incredible!"</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Sarah Johnson</h4>
+                                    <p>Cellular Detox Program</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <p>"The Metabolic Reset program helped me lose 28 pounds of stubborn weight I'd been carrying for years. More importantly, it completely transformed my relationship with food and gave me sustainable habits. The genetic testing was eye-opening and the organic meal plans were delicious!"</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael Chen">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Michael Chen</h4>
+                                    <p>Metabolic Reset Program</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <p>"As a busy executive, I was skeptical about the Energy Revival program but desperate for a solution to my chronic fatigue. The mitochondrial support protocol and sleep optimization plan gave me more energy in my 40s than I had in my 20s. Worth every penny!"</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Jessica Williams">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Jessica Williams</h4>
+                                    <p>Energy Revival Program</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-nav">
+                <div class="slider-dot active" data-slide="0"></div>
+                <div class="slider-dot" data-slide="1"></div>
+                <div class="slider-dot" data-slide="2"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="quiz">
+        <div class="cta-container">
+            <h2 class="animate">Not Sure Which Program Is Right For You?</h2>
+            <p class="animate delay-1">Take our 2-minute wellness quiz to get a personalized program recommendation</p>
+            <div class="btn-group animate delay-2">
+                <a href="#" class="btn btn-primary">Take the Quiz</a>
+                <a href="contact.html" class="btn btn-outline">Get a Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>VitaPure+</h3>
+                <p>Premium organic wellness programs designed to transform your health from the inside out.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="features.html"><i class="fas fa-chevron-right"></i> Features</a></li>
+                    <li><a href="programs.html"><i class="fas fa-chevron-right"></i> Programs</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> Experts</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Programs</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Cellular Detox</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Metabolic Reset</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Energy Revival</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Longevity Blueprint</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Newsletter</h3>
+                <p>Subscribe for organic wellness tips and special offers.</p>
+                <form class="footer-newsletter-form">
+                    <input type="email" placeholder="Your email">
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 VitaPure+. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Preloader
+        const preloader = document.getElementById('preloader');
+        const progressBar = document.getElementById('progressBar');
+        
+        // Simulate loading progress
+        let progress = 0;
+        const interval = setInterval(() => {
+            progress += Math.random() * 10;
+            if (progress >= 100) {
+                progress = 100;
+                clearInterval(interval);
+                setTimeout(() => {
+                    preloader.style.opacity = '0';
+                    preloader.style.visibility = 'hidden';
+                }, 500);
+            }
+            progressBar.style.width = `${progress}%`;
+        }, 200);
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Category filtering
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const programCards = document.querySelectorAll('.program-card');
+        
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active state
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Filter programs
+                const category = btn.dataset.category;
+                programCards.forEach(card => {
+                    if (category === 'all' || card.dataset.category === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Testimonial slider
+        const track = document.querySelector('.testimonials-track');
+        const dots = document.querySelectorAll('.slider-dot');
+        let currentSlide = 0;
+        
+        function goToSlide(index) {
+            track.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+            currentSlide = index;
+        }
+        
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                goToSlide(parseInt(dot.dataset.slide));
+            });
+        });
+        
+        // Auto-advance slides
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % dots.length;
+            goToSlide(currentSlide);
+        }, 5000);
+
+        // Scroll animations
+        const animateElements = document.querySelectorAll('.animate');
+        
+        function checkScroll() {
+            animateElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.style.animationPlayState = 'running';
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkScroll);
+        window.addEventListener('load', checkScroll);
+    </script>
+</body>
+</html>

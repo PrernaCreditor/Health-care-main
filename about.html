@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About VitaPure+ | Premium Organic Wellness Experts</title>
+     <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- <style>
+        /* Base styles from your original CSS */
+        :root {
+            --primary: #3D9970;
+            --primary-dark: #2E7D32;
+            --primary-light: rgba(61, 153, 112, 0.1);
+            --secondary: #FFD166;
+            --secondary-dark: #E6B84C;
+            --accent: #FF6B6B;
+            --accent-dark: #E64A4A;
+            --light: #F8F9FA;
+            --dark: #1A3E2F;
+            --darker: #0F261C;
+            --text: #212529;
+            --text-light: #6C757D;
+            --white: #FFFFFF;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.15);
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+        }
+
+        /* Add your original CSS styles here */
+        /* ... */
+
+        /* About Page Specific Styles */
+        .about-hero {
+            background: linear-gradient(135deg, rgba(61, 153, 112, 0.85) 0%, rgba(46, 125, 50, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-section {
+            padding: 8rem 5%;
+            background-color: var(--white);
+            position: relative;
+        }
+
+        .mission-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .mission-content {
+            flex: 1;
+            min-width: 350px;
+        }
+
+        .mission-image {
+            flex: 1;
+            min-width: 350px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .mission-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .mission-image:hover img {
+            transform: scale(1.03);
+        }
+
+        .values-section {
+            padding: 6rem 5%;
+            background-color: var(--light);
+            position: relative;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .value-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-primary);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .value-card:hover::before {
+            height: 100%;
+        }
+
+        .value-card:hover .value-icon,
+        .value-card:hover h3,
+        .value-card:hover p {
+            color: var(--white);
+        }
+
+        .value-icon {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .timeline-section {
+            padding: 8rem 5%;
+            background-color: var(--white);
+            position: relative;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary-light);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 10px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: var(--white);
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+            text-align: right;
+        }
+
+        .right {
+            left: 50%;
+            text-align: left;
+        }
+
+        .left::after {
+            right: -12px;
+        }
+
+        .right::after {
+            left: -12px;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: var(--light);
+            border-radius: 15px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .timeline-item:hover .timeline-content {
+            transform: scale(1.03);
+            box-shadow: var(--shadow-md);
+            background-color: var(--white);
+        }
+
+        .timeline-year {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .team-section {
+            padding: 8rem 5%;
+            background-color: var(--light);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .team-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .team-image {
+            height: 350px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .team-card:hover .team-image img {
+            transform: scale(1.05);
+        }
+
+        .team-content {
+            padding: 2rem;
+        }
+
+        .team-name {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .team-title {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .team-bio {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .team-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--light);
+            border-radius: 50%;
+            color: var(--text);
+            transition: var(--transition);
+        }
+
+        .team-social a:hover {
+            background: var(--gradient-primary);
+            color: var(--white);
+            transform: translateY(-5px);
+        }
+
+        .certifications-section {
+            padding: 6rem 5%;
+            background-color: var(--white);
+        }
+
+        .certifications-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 4rem;
+        }
+
+        .certification-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 200px;
+            text-align: center;
+        }
+
+        .certification-logo {
+            width: 120px;
+            height: 120px;
+            background-color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .certification-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+
+        .certification-item:hover .certification-logo {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .certification-item:hover .certification-logo img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        .certification-name {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .certification-desc {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .cta-section {
+            padding: 8rem 5%;
+            background: var(--gradient-primary);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::after {
+                left: 18px;
+            }
+
+            .left::after, .right::after {
+                left: 18px;
+            }
+
+            .right {
+                left: 0%;
+            }
+
+            .left, .right {
+                text-align: left;
+            }
+        }
+
+        /* Animation styles */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.8s;
+        }
+    </style> -->
+
+
+
+
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="loader"></div>
+        <div class="preloader-text">Loading VitaPure+</div>
+        <div class="preloader-progress">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+    </div>
+
+   <!-- Header -->
+    <header id="header">
+        <nav class="navbar">
+            <a href="#home" class="logo">
+                <div class="logo-img">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <span>VitaPure+</span>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html">Features <i class="fas fa-chevron-down"></i></a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#team">Programs</a></li>
+                <li><a href="#testimonials">Results</a></li>
+                <li><a href="#blog">Knowledge</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#programs" class="btn btn-primary">Join Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="hero-content">
+            <h1 class="animate">Our Story & Vision</h1>
+            <p class="animate delay-1">Pioneering organic wellness through science, nature, and personalized care</p>
+            <div class="btn-group animate delay-2">
+                <a href="#team" class="btn btn-primary">Meet Our Experts</a>
+                <a href="#mission" class="btn btn-outline">Our Approach</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section" id="mission">
+        <div class="mission-container">
+            <div class="mission-content animate">
+                <h2>Redefining Wellness Through Organic Science</h2>
+                <p>Founded in 2010 by Dr. Amanda Smith, VitaPure+ began as a small wellness clinic with a bold vision: to bridge the gap between cutting-edge science and ancient organic wisdom.</p>
+                <p>After overcoming her own health challenges through organic protocols, Dr. Smith developed our proprietary 5-Pillar Methodology that has now helped over 15,000 clients worldwide achieve transformative results.</p>
+                <p>What sets us apart is our commitment to:</p>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <li style="margin-bottom: 1rem;"><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 10px;"></i> 100% certified organic protocols</li>
+                    <li style="margin-bottom: 1rem;"><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 10px;"></i> Peer-reviewed scientific validation</li>
+                    <li style="margin-bottom: 1rem;"><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 10px;"></i> Personalized bio-individual plans</li>
+                    <li><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 10px;"></i> Sustainable farm-to-table partnerships</li>
+                </ul>
+            </div>
+            <div class="mission-image animate delay-1">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="VitaPure+ Founders">
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="section-title">
+            <h2>Our Core Values</h2>
+            <p>The principles that guide every aspect of our work</p>
+        </div>
+        <div class="values-grid">
+            <div class="value-card animate">
+                <div class="value-icon">
+                    <i class="fas fa-seedling"></i>
+                </div>
+                <h3>Organic Integrity</h3>
+                <p>We never compromise on ingredient quality, using only certified organic materials in all our programs and products.</p>
+            </div>
+            <div class="value-card animate delay-1">
+                <div class="value-icon">
+                    <i class="fas fa-flask"></i>
+                </div>
+                <h3>Scientific Rigor</h3>
+                <p>Every protocol is backed by clinical research and continuously refined based on the latest scientific discoveries.</p>
+            </div>
+            <div class="value-card animate delay-2">
+                <div class="value-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3>Personalized Care</h3>
+                <p>We recognize each individual's unique biochemistry and create custom solutions for optimal results.</p>
+            </div>
+            <div class="value-card animate delay-3">
+                <div class="value-icon">
+                    <i class="fas fa-globe-americas"></i>
+                </div>
+                <h3>Sustainable Impact</h3>
+                <p>Our commitment extends beyond individual health to environmental stewardship and community wellbeing.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="section-title">
+            <h2>Our Journey</h2>
+            <p>Key milestones in our evolution as wellness pioneers</p>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item left animate">
+                <div class="timeline-content">
+                    <div class="timeline-year">2010</div>
+                    <h3>Foundation</h3>
+                    <p>Dr. Amanda Smith opens the first VitaPure+ clinic in Portland, Oregon with a focus on organic detox protocols.</p>
+                </div>
+            </div>
+            <div class="timeline-item right animate delay-1">
+                <div class="timeline-content">
+                    <div class="timeline-year">2013</div>
+                    <h3>Research Breakthrough</h3>
+                    <p>Publication of our landmark study on organic compounds and cellular detoxification in the Journal of Nutritional Biochemistry.</p>
+                </div>
+            </div>
+            <div class="timeline-item left animate delay-2">
+                <div class="timeline-content">
+                    <div class="timeline-year">2016</div>
+                    <h3>National Expansion</h3>
+                    <p>Opening of wellness centers in 5 major U.S. cities and launch of our first digital programs.</p>
+                </div>
+            </div>
+            <div class="timeline-item right animate delay-3">
+                <div class="timeline-content">
+                    <div class="timeline-year">2019</div>
+                    <h3>Organic Farm Network</h3>
+                    <p>Establishment of our certified organic farm collective to ensure premium ingredient sourcing.</p>
+                </div>
+            </div>
+            <div class="timeline-item left animate">
+                <div class="timeline-content">
+                    <div class="timeline-year">2022</div>
+                    <h3>Global Recognition</h3>
+                    <p>VitaPure+ named "Most Innovative Wellness Company" by Global Health Awards.</p>
+                </div>
+            </div>
+            <div class="timeline-item right animate delay-1">
+                <div class="timeline-content">
+                    <div class="timeline-year">2023</div>
+                    <h3>Holistic Ecosystem</h3>
+                    <p>Launch of our complete wellness ecosystem integrating nutrition, movement, and mind-body therapies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section" id="team">
+        <div class="section-title">
+            <h2>Meet Our Expert Team</h2>
+            <p>The brilliant minds behind our transformative programs</p>
+        </div>
+        <div class="team-grid">
+            <div class="team-card animate">
+                <div class="team-image">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Dr. Amanda Smith">
+                </div>
+                <div class="team-content">
+                    <h3 class="team-name">Dr. Amanda Smith</h3>
+                    <p class="team-title">Founder & Chief Wellness Officer</p>
+                    <p class="team-bio">PhD in Nutritional Biochemistry, 25+ years experience specializing in organic protocols for autoimmune conditions and gut health.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-card animate delay-1">
+                <div class="team-image">
+                    <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80" alt="Dr. James Wilson">
+                </div>
+                <div class="team-content">
+                    <h3 class="team-name">Dr. James Wilson</h3>
+                    <p class="team-title">Director of Nutrition Research</p>
+                    <p class="team-bio">Registered Dietitian Nutritionist and Functional Medicine expert with 15+ years in metabolic health research.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-card animate delay-2">
+                <div class="team-image">
+                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" alt="Dr. Lisa Chen">
+                </div>
+                <div class="team-content">
+                    <h3 class="team-name">Dr. Lisa Chen</h3>
+                    <p class="team-title">Lead Detox Specialist</p>
+                    <p class="team-bio">Naturopathic Doctor and author of "The Organic Detox" with expertise in environmental toxin elimination.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-card animate delay-3">
+                <div class="team-image">
+                    <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" alt="Dr. Sarah Johnson">
+                </div>
+                <div class="team-content">
+                    <h3 class="team-name">Dr. Sarah Johnson</h3>
+                    <p class="team-title">Mind-Body Wellness Director</p>
+                    <p class="team-bio">Psychologist and yoga therapist integrating mindfulness practices with organic nutrition for holistic healing.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications-section">
+        <div class="section-title">
+            <h2>Our Certifications & Partnerships</h2>
+            <p>Recognized by leading health organizations worldwide</p>
+        </div>
+        <div class="certifications-container">
+            <div class="certification-item animate">
+                <div class="certification-logo">
+                    <img src="./usda.png" alt="USDA Organic">
+                </div>
+                <div class="certification-name">USDA Organic</div>
+                <div class="certification-desc">Certified organic protocols since 2012</div>
+            </div>
+            <div class="certification-item animate delay-1">
+                <div class="certification-logo">
+                    <img src="./ifm.png" alt="Institute for Functional Medicine">
+                </div>
+                <div class="certification-name">Functional Medicine</div>
+                <div class="certification-desc">Certified practitioners since 2015</div>
+            </div>
+            <div class="certification-item animate delay-2">
+                <div class="certification-logo">
+                    <img src="./IFOAm.jpg" alt="IFOAM">
+                </div>
+                <div class="certification-name">IFOAM Accredited</div>
+                <div class="certification-desc">Global organic standards since 2018</div>
+            </div>
+            <div class="certification-item animate delay-3">
+                <div class="certification-logo">
+                    <img src="./NACCOM.png" alt="NCCAOM">
+                </div>
+                <div class="certification-name">NCCAOM Certified</div>
+                <div class="certification-desc">Holistic medicine excellence</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2 class="animate">Ready to Experience the VitaPure+ Difference?</h2>
+            <p class="animate delay-1">Schedule a free consultation with one of our organic wellness specialists today</p>
+            <div class="btn-group animate delay-2">
+                <a href="contact.html" class="btn btn-primary">Book Consultation</a>
+                <a href="programs/" class="btn btn-outline">Explore Programs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>VitaPure+</h3>
+                <p>Premium organic wellness programs designed to transform your health from the inside out.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="index.html#features"><i class="fas fa-chevron-right"></i> Features</a></li>
+                    <li><a href="programs/"><i class="fas fa-chevron-right"></i> Programs</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> Experts</a></li>
+                    <li><a href="index.html#testimonials"><i class="fas fa-chevron-right"></i> Results</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Programs</h3>
+                <ul class="footer-links">
+                    <li><a href="programs/detox.html"><i class="fas fa-chevron-right"></i> Cellular Detox</a></li>
+                    <li><a href="programs/weight.html"><i class="fas fa-chevron-right"></i> Metabolic Reset</a></li>
+                    <li><a href="programs/energy.html"><i class="fas fa-chevron-right"></i> Energy Revival</a></li>
+                    <li><a href="programs/longevity.html"><i class="fas fa-chevron-right"></i> Longevity Blueprint</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Newsletter</h3>
+                <p>Subscribe to receive exclusive organic health tips and special offers.</p>
+                <form class="footer-newsletter-form">
+                    <input type="email" class="footer-newsletter-input" placeholder="Your email">
+                    <button type="submit" class="footer-newsletter-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 VitaPure+. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Preloader
+        const preloader = document.getElementById('preloader');
+        const progressBar = document.getElementById('progressBar');
+        
+        // Simulate loading progress
+        let progress = 0;
+        const interval = setInterval(() => {
+            progress += 1;
+            progressBar.style.width = `${progress}%`;
+            
+            if (progress >= 100) {
+                clearInterval(interval);
+                setTimeout(() => {
+                    preloader.classList.add('fade-out');
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                    }, 800);
+                }, 500);
+            }
+        }, 30);
+        
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('active');
+            } else {
+                backToTopBtn.classList.remove('active');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Animation on scroll
+        const animateElements = () => {
+            const elements = document.querySelectorAll('.animate');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Run once on page load
+        animateElements();
+        
+        // Run on scroll
+        window.addEventListener('scroll', animateElements);
+    </script>
+</body>
+</html>

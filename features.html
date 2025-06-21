@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VitaPure+ Features | Premium Organic Wellness Solutions</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary: #3D9970;
+            --primary-dark: #2E7D32;
+            --primary-light: rgba(61, 153, 112, 0.1);
+            --secondary: #FFD166;
+            --secondary-dark: #E6B84C;
+            --accent: #FF6B6B;
+            --accent-dark: #E64A4A;
+            --light: #F8F9FA;
+            --dark: #1A3E2F;
+            --darker: #0F261C;
+            --text: #212529;
+            --text-light: #6C757D;
+            --white: #FFFFFF;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.15);
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--darker);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-sm);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 5%;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        /* Features Hero Section */
+        .features-hero {
+            background: linear-gradient(135deg, rgba(61, 153, 112, 0.85) 0%, rgba(46, 125, 50, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 70vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 5%;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .features-hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, var(--light), transparent);
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .features-hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .features-hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Feature Categories */
+        .feature-categories {
+            padding: 5rem 5%;
+            background-color: var(--white);
+        }
+
+        .categories-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .category-btn {
+            padding: 1rem 2rem;
+            background: transparent;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .category-btn.active {
+            color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .category-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        .category-btn:hover:not(.active) {
+            color: var(--text);
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        /* Features Grid */
+        .features-section {
+            padding: 6rem 5%;
+            background-color: var(--light);
+        }
+
+        .features-container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .feature-card {
+            background-color: var(--white);
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-primary);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-card:hover::before {
+            height: 10px;
+        }
+
+        .feature-icon {
+            font-size: 4.5rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.2) rotate(10deg);
+            color: var(--accent);
+        }
+
+        .feature-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+        }
+
+        .feature-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--primary-light);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover h3::after {
+            width: 100px;
+            background: var(--accent);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .feature-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+
+        .feature-link:hover {
+            color: var(--accent);
+        }
+
+        .feature-link:hover::after {
+            width: 100%;
+        }
+
+        .feature-link i {
+            margin-left: 8px;
+            transition: var(--transition);
+        }
+
+        .feature-link:hover i {
+            transform: translateX(8px);
+        }
+
+        /* Feature Spotlight */
+        .spotlight-section {
+            padding: 8rem 5%;
+            background: var(--gradient-primary);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .spotlight-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .spotlight-content {
+            flex: 1;
+            min-width: 350px;
+        }
+
+        .spotlight-content h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .spotlight-content p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .spotlight-image {
+            flex: 1;
+            min-width: 350px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transform: perspective(1000px) rotateY(-10deg);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .spotlight-image:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        .spotlight-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .spotlight-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Feature Comparison */
+        .comparison-section {
+            padding: 8rem 5%;
+            background-color: var(--white);
+        }
+
+        .comparison-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow-x: auto;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 3rem;
+        }
+
+        .comparison-table th {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 1.5rem;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--primary-light);
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background-color: var(--primary-light);
+        }
+
+        .check-mark {
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 8rem 5%;
+            background-color: var(--light);
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .cta-section p {
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            font-size: 1.2rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .features-hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            
+            .spotlight-container {
+                flex-direction: column;
+            }
+            
+            .spotlight-image {
+                transform: none;
+                margin-top: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .features-hero {
+                height: 60vh;
+                min-height: 500px;
+                background-attachment: scroll;
+            }
+            
+            .features-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .category-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .features-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .feature-card {
+                padding: 2.5rem 2rem;
+            }
+            
+            .feature-icon {
+                font-size: 3.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.8s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="loader"></div>
+        <div class="preloader-text">Loading VitaPure+</div>
+        <div class="preloader-progress">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <div class="logo-img">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <span>VitaPure+</span>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html" class="active">Features</a></li>
+                <li><a href="programs.html">Programs</a></li>
+                <li><a href="about.html">Experts</a></li>
+                <li><a href="testimonials.html">Results</a></li>
+                <li><a href="blog.html">Knowledge</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="programs/" class="btn btn-primary">Join Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Features Hero Section -->
+    <section class="features-hero">
+        <div class="hero-content">
+            <h1 class="animate">Premium Organic Wellness Features</h1>
+            <p class="animate delay-1">Discover the science-backed, nature-inspired solutions that make VitaPure+ the most effective organic wellness ecosystem</p>
+            <div class="btn-group animate delay-2">
+                <a href="#features" class="btn btn-primary">Explore Features</a>
+                <a href="programs/" class="btn btn-outline">View Programs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Categories -->
+    <section class="feature-categories">
+        <div class="categories-container">
+            <div class="section-title">
+                <h2>Our Wellness Categories</h2>
+                <p>Explore our comprehensive approach to organic health and vitality</p>
+            </div>
+            <div class="category-tabs">
+                <button class="category-btn active" data-category="all">All Features</button>
+                <button class="category-btn" data-category="nutrition">Nutrition</button>
+                <button class="category-btn" data-category="detox">Detox</button>
+                <button class="category-btn" data-category="fitness">Fitness</button>
+                <button class="category-btn" data-category="mindfulness">Mindfulness</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="features-section" id="features">
+        <div class="features-container">
+            <div class="section-title">
+                <h2>Core Wellness Features</h2>
+                <p>Our proprietary organic protocols deliver transformative results</p>
+            </div>
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card animate" data-category="nutrition">
+                    <div class="feature-icon">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <h3>100% Organic Nutrition</h3>
+                    <p>Customized meal plans using certified organic ingredients tailored to your unique biochemistry and health goals. Farm-to-table sourcing from our network of organic growers.</p>
+                    <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card animate delay-1" data-category="detox">
+                    <div class="feature-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3>Advanced Cellular Detox</h3>
+                    <p>Comprehensive detox programs targeting all 7 pathways of elimination using organic protocols to cleanse at cellular level for lasting results and renewed vitality.</p>
+                    <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card animate delay-2" data-category="nutrition">
+                    <div class="feature-icon">
+                        <i class="fas fa-dna"></i>
+                    </div>
+                    <h3>Bio-Individual Approach</h3>
+                    <p>Advanced testing and analysis including genetic profiling to create a wellness plan that matches your unique genetic makeup and lifestyle factors.</p>
+                    <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="feature-card animate delay-3" data-category="fitness">
+                    <div class="feature-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Movement Therapy</h3>
+                    <p>Personalized organic movement plans combining yoga, functional training and restorative exercises tailored to your body's needs and fitness level.</p>
+                    <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="feature-card animate" data-category="mindfulness">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Mind-Body Connection</h3>
+                    <p>Evidence-based mindfulness practices, meditation techniques and stress reduction protocols to support emotional balance and mental clarity.</p>
+                    <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="feature-card animate delay-1" data-category="detox">
+                    <div class="feature-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Farm Direct Supplements</h3>
+                    <p>Pharmaceutical-grade organic supplements made from ingredients grown on our partner farms, ensuring maximum potency and purity.</p>
+                    <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Spotlight -->
+    <section class="spotlight-section">
+        <div class="spotlight-container">
+            <div class="spotlight-content animate">
+                <h2>Our Signature Organic Nutrition System</h2>
+                <p>The VitaPure+ Nutrition Framework combines ancestral wisdom with modern science to deliver optimal nourishment at the cellular level. Our proprietary Organic Nutrition Score (ONS) evaluates over 50 biomarkers to create your perfect eating plan.</p>
+                <div class="btn-group">
+                    <a href="programs/" class="btn btn-primary">Experience It Now</a>
+                    <a href="#" class="btn btn-outline">How It Works</a>
+                </div>
+            </div>
+            <div class="spotlight-image animate delay-1">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Organic Nutrition System">
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Comparison -->
+    <section class="comparison-section">
+        <div class="comparison-container">
+            <div class="section-title">
+                <h2>How We Compare</h2>
+                <p>VitaPure+ offers more comprehensive organic wellness solutions than conventional programs</p>
+            </div>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Conventional Programs</th>
+                        <th>VitaPure+</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>100% Organic Ingredients</td>
+                        <td><i class="fas fa-times"></i></td>
+                        <td><i class="fas fa-check check-mark"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Personalized Genetic Analysis</td>
+                        <td><i class="fas fa-times"></i></td>
+                        <td><i class="fas fa-check check-mark"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Cellular Detox Protocols</td>
+                        <td>Basic</td>
+                        <td>Advanced</td>
+                    </tr>
+                    <tr>
+                        <td>Farm-to-Table Sourcing</td>
+                        <td><i class="fas fa-times"></i></td>
+                        <td><i class="fas fa-check check-mark"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Holistic Mind-Body Approach</td>
+                        <td>Limited</td>
+                        <td>Comprehensive</td>
+                    </tr>
+                    <tr>
+                        <td>Ongoing Expert Support</td>
+                        <td>Email Only</td>
+                        <td>24/7 Access</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2 class="animate">Ready to Transform Your Health?</h2>
+            <p class="animate delay-1">Experience the VitaPure+ difference with our premium organic wellness programs</p>
+            <div class="btn-group animate delay-2">
+                <a href="programs.html" class="btn btn-primary">View Programs</a>
+                <a href="contact.html" class="btn btn-outline">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>VitaPure+</h3>
+                <p>Premium organic wellness programs designed to transform your health from the inside out.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="features.html"><i class="fas fa-chevron-right"></i> Features</a></li>
+                    <li><a href="programs/"><i class="fas fa-chevron-right"></i> Programs</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> Experts</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Features</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Organic Nutrition</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Cellular Detox</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Bio-Individual Plans</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Mind-Body Wellness</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Newsletter</h3>
+                <p>Subscribe for organic wellness tips and special offers.</p>
+                <form class="footer-newsletter-form">
+                    <input type="email" placeholder="Your email">
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 VitaPure+. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Preloader
+        const preloader = document.getElementById('preloader');
+        const progressBar = document.getElementById('progressBar');
+        
+        let progress = 0;
+        const interval = setInterval(() => {
+            progress += 1;
+            progressBar.style.width = `${progress}%`;
+            
+            if (progress >= 100) {
+                clearInterval(interval);
+                setTimeout(() => {
+                    preloader.classList.add('fade-out');
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                    }, 800);
+                }, 500);
+            }
+        }, 30);
+        
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Category Filtering
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const featureCards = document.querySelectorAll('.feature-card');
+        
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const category = btn.getAttribute('data-category');
+                
+                // Update active button
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Filter features
+                featureCards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Animation on scroll
+        const animateElements = () => {
+            const elements = document.querySelectorAll('.animate');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Run once on page load
+        animateElements();
+        
+        // Run on scroll
+        window.addEventListener('scroll', animateElements);
+    </script>
+</body>
+</html>
