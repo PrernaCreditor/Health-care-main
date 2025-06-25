@@ -1,0 +1,378 @@
+/* Patient Dashboard Styles */
+.patient-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+}
+
+.sidebar {
+    width: 280px;
+    background-color: #ffffff;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    padding: 25px;
+    text-align: center;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.sidebar-header img {
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.sidebar-header h3 {
+    color: #4a8c5e;
+    font-size: 18px;
+    margin: 0;
+}
+
+.sidebar-nav {
+    flex: 1;
+    padding: 20px 0;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 25px;
+    color: #555;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.nav-item i {
+    margin-right: 12px;
+    font-size: 18px;
+}
+
+.nav-item.active {
+    background-color: #f0f7f2;
+    color: #4a8c5e;
+    border-left: 4px solid #4a8c5e;
+}
+
+.nav-item:hover:not(.active) {
+    background-color: #f8f8f8;
+}
+
+.sidebar-footer {
+    padding: 20px;
+    border-top: 1px solid #eaeaea;
+}
+
+.btn-logout {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    color: #777;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.btn-logout i {
+    margin-right: 10px;
+}
+
+.btn-logout:hover {
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+.patient-main {
+    flex: 1;
+    padding: 30px;
+    background-color: #f8f9fa;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.main-header h2 {
+    color: #333;
+    font-size: 24px;
+    margin: 0 0 5px 0;
+}
+
+.main-header p {
+    color: #777;
+    margin: 0;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.notification-bell {
+    position: relative;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.notification-bell i {
+    font-size: 20px;
+    color: #555;
+}
+
+.badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+}
+
+.user-avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.health-summary {
+    grid-column: span 8;
+}
+
+.health-metrics {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.metric {
+    text-align: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    flex: 1;
+    margin: 0 10px;
+}
+
+.metric-value {
+    font-size: 28px;
+    font-weight: bold;
+    color: #4a8c5e;
+    margin-bottom: 5px;
+}
+
+.metric-label {
+    color: #777;
+    font-size: 14px;
+}
+
+.health-chart {
+    height: 200px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.recent-orders {
+    grid-column: span 4;
+}
+
+.order-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.order-item:last-child {
+    border-bottom: none;
+}
+
+.order-name {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.order-date {
+    color: #777;
+    font-size: 13px;
+}
+
+.order-status {
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.order-status.delivered {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.order-status.shipped {
+    background-color: #e3f2fd;
+    color: #1565c0;
+}
+
+.appointments {
+    grid-column: span 6;
+}
+
+.appointment-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.appointment-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.appointment-item:last-child {
+    border-bottom: none;
+}
+
+.appointment-date {
+    background-color: #f0f7f2;
+    color: #4a8c5e;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    min-width: 50px;
+    margin-right: 15px;
+}
+
+.date-day {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.date-month {
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.doctor-name {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.appointment-time {
+    color: #777;
+    font-size: 13px;
+}
+
+.health-tips {
+    grid-column: span 6;
+}
+
+.tip-content {
+    display: flex;
+}
+
+.tip-image {
+    width: 100px;
+    height: 100px;
+    background-color: #e8f5e9;
+    border-radius: 8px;
+    margin-right: 15px;
+    background-image: url('../assets/water-icon.png');
+    background-size: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.tip-text h4 {
+    margin: 0 0 10px 0;
+    color: #4a8c5e;
+}
+
+.tip-text p {
+    margin: 0;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .health-summary {
+        grid-column: span 12;
+    }
+    
+    .recent-orders {
+        grid-column: span 12;
+    }
+    
+    .appointments, .health-tips {
+        grid-column: span 6;
+    }
+}
+
+@media (max-width: 768px) {
+    .patient-container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        height: auto;
+    }
+    
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .health-summary, .recent-orders, .appointments, .health-tips {
+        grid-column: span 1;
+    }
+}

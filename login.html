@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VitaPure+ | Premium Healthcare Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="./css/auth.css">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="auth-container">
+        <!-- Animated Gradient Background -->
+        <div class="bg-gradient"></div>
+        
+        <!-- Floating Organic Elements -->
+        <div class="floating-elements">
+            <div class="organic-shape shape-1"></div>
+            <div class="organic-shape shape-2"></div>
+            <div class="organic-shape shape-3"></div>
+            <div class="organic-shape shape-4"></div>
+        </div>
+        
+        <!-- Glassmorphism Auth Card -->
+        <div class="auth-card">
+            <!-- Premium Logo Header -->
+            <div class="auth-header">
+                <div class="logo-container">
+                    <svg class="logo-icon" viewBox="0 0 100 100">
+                        <path fill="#4a8c5e" d="M50,10 L90,50 L50,90 L10,50 Z" opacity="0.8"/>
+                        <path fill="#ffffff" d="M50,30 L70,50 L50,70 L30,50 Z"/>
+                    </svg>
+                    <h1>VitaPure<span>+</span></h1>
+                </div>
+                <p class="tagline">Elevate Your Wellness Journey</p>
+                <div class="header-decoration">
+                    <span class="deco-line"></span>
+                    <i class="fas fa-leaf"></i>
+                    <span class="deco-line"></span>
+                </div>
+            </div>
+            
+            <!-- Animated Tabs -->
+            <div class="auth-tabs">
+                <button class="tab-btn active" id="loginTab">
+                    <i class="fas fa-sign-in-alt"></i>
+                    <span>Login</span>
+                </button>
+                <button class="tab-btn" id="signupTab">
+                    <i class="fas fa-user-plus"></i>
+                    <span>Sign Up</span>
+                </button>
+                <div class="tab-indicator"></div>
+            </div>
+            
+            <!-- Forms Container with Floating Effect -->
+            <div class="forms-container">
+                <!-- Login Form -->
+                <form id="loginForm" class="auth-form active">
+                    <div class="form-group floating-form">
+                        <div class="input-with-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="loginEmail" placeholder=" " required>
+                            <label for="loginEmail">Email Address</label>
+                            <div class="focus-line"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group floating-form">
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="loginPassword" placeholder=" " required>
+                            <label for="loginPassword">Password</label>
+                            <i class="fas fa-eye toggle-password" data-target="loginPassword"></i>
+                            <div class="focus-line"></div>
+                        </div>
+                        <div class="form-options">
+                            <label class="remember-me">
+                                <input type="checkbox" id="rememberMe">
+                                <span class="checkmark"></span>
+                                <span>Remember me</span>
+                            </label>
+                            <a href="#forgot-password" class="forgot-password">Forgot password?</a>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary btn-glow">
+                        <span>Login</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    
+                    <div class="social-login">
+                        <p class="divider">Or continue with</p>
+                        <div class="social-icons">
+                            <button type="button" class="social-btn google">
+                                <i class="fab fa-google"></i>
+                            </button>
+                            <button type="button" class="social-btn apple">
+                                <i class="fab fa-apple"></i>
+                            </button>
+                            <button type="button" class="social-btn facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                
+                <!-- Signup Form -->
+                <form id="signupForm" class="auth-form">
+                    <div class="form-group floating-form">
+                        <div class="input-with-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="signupName" placeholder=" " required>
+                            <label for="signupName">Full Name</label>
+                            <div class="focus-line"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group floating-form">
+                        <div class="input-with-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="signupEmail" placeholder=" " required>
+                            <label for="signupEmail">Email Address</label>
+                            <div class="focus-line"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group floating-form">
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="signupPassword" placeholder=" " required>
+                            <label for="signupPassword">Password</label>
+                            <i class="fas fa-eye toggle-password" data-target="signupPassword"></i>
+                            <div class="focus-line"></div>
+                        </div>
+                        <div class="password-strength">
+                            <div class="strength-meter">
+                                <span class="strength-bar"></span>
+                                <span class="strength-bar"></span>
+                                <span class="strength-bar"></span>
+                            </div>
+                            <span class="strength-text">Password strength</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group floating-form">
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="signupConfirm" placeholder=" " required>
+                            <label for="signupConfirm">Confirm Password</label>
+                            <div class="focus-line"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="acceptTerms" required>
+                        <label for="acceptTerms">
+                            <span class="checkmark"></span>
+                            I agree to the <a href="#terms">Terms</a> and <a href="#privacy">Privacy</a>
+                        </label>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="healthUpdates">
+                        <label for="healthUpdates">
+                            <span class="checkmark"></span>
+                            Receive health tips and updates
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary btn-glow">
+                        <span>Create Account</span>
+                        <i class="fas fa-user-plus"></i>
+                    </button>
+                    
+                    <div class="already-have-account">
+                        Already a member? <a href="#login" class="switch-to-login">Sign in</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Premium Health Tips -->
+        <div class="health-tips-slider">
+            <div class="tip-card active">
+                <div class="tip-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h3>Organic Wellness</h3>
+                <p>Premium organic supplements tailored to your health needs</p>
+            </div>
+            <div class="tip-card">
+                <div class="tip-icon">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <h3>Expert Consultations</h3>
+                <p>24/7 access to certified healthcare professionals</p>
+            </div>
+            <div class="tip-card">
+                <div class="tip-icon">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <h3>Holistic Tracking</h3>
+                <p>Comprehensive health monitoring and analytics</p>
+            </div>
+            <div class="slider-controls">
+                <button class="slider-dot active" data-slide="0"></button>
+                <button class="slider-dot" data-slide="1"></button>
+                <button class="slider-dot" data-slide="2"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Premium Forgot Password Modal -->
+    <div class="modal" id="forgotPasswordModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>Reset Your Password</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Enter your email to receive a secure password reset link</p>
+                <form id="forgotPasswordForm">
+                    <div class="form-group floating-form">
+                        <div class="input-with-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="forgotEmail" placeholder=" " required>
+                            <label for="forgotEmail">Your email address</label>
+                            <div class="focus-line"></div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary btn-glow">
+                        <span>Send Reset Link</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/auth.js"></script>
+</body>
+</html>

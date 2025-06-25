@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard | VitaPure+</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="./patient.css">
+</head>
+<body>
+    <div class="patient-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/logo-icon.png" alt="VitaPure+">
+                <h3>VitaPure+</h3>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item active">
+                    <i class="icon-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="products.html" class="nav-item">
+                    <i class="icon-products"></i>
+                    <span>Products</span>
+                </a>
+                <a href="appointments.html" class="nav-item">
+                    <i class="icon-appointments"></i>
+                    <span>Appointments</span>
+                </a>
+                <a href="health.html" class="nav-item">
+                    <i class="icon-health"></i>
+                    <span>Health Tracker</span>
+                </a>
+                <a href="profile.html" class="nav-item">
+                    <i class="icon-profile"></i>
+                    <span>My Profile</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <button class="btn-logout">
+                    <i class="icon-logout"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="patient-main">
+            <header class="main-header">
+                <div class="header-left">
+                    <h2>Welcome back, <span id="userName">Alex</span></h2>
+                    <p id="welcomeMessage">Here's your health summary for today</p>
+                </div>
+                <div class="header-right">
+                    <div class="notification-bell">
+                        <i class="icon-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user-avatar">
+                        <img src="../assets/user-avatar.jpg" alt="User">
+                    </div>
+                </div>
+            </header>
+            
+            <div class="dashboard-grid">
+                <!-- Health Summary -->
+                <div class="card health-summary">
+                    <h3>Health Summary</h3>
+                    <div class="health-metrics">
+                        <div class="metric">
+                            <div class="metric-value">72</div>
+                            <div class="metric-label">Wellness Score</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">8</div>
+                            <div class="metric-label">Active Days</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">96</div>
+                            <div class="metric-label">Water Intake</div>
+                        </div>
+                    </div>
+                    <div class="health-chart">
+                        <!-- Chart would be rendered here -->
+                        <div class="chart-placeholder"></div>
+                    </div>
+                </div>
+                
+                <!-- Recent Orders -->
+                <div class="card recent-orders">
+                    <div class="card-header">
+                        <h3>Recent Orders</h3>
+                        <a href="products.html" class="btn-text">View All</a>
+                    </div>
+                    <div class="order-list">
+                        <div class="order-item">
+                            <div class="order-info">
+                                <div class="order-name">Organic Multivitamin</div>
+                                <div class="order-date">Jun 12, 2023</div>
+                            </div>
+                            <div class="order-status delivered">Delivered</div>
+                        </div>
+                        <div class="order-item">
+                            <div class="order-info">
+                                <div class="order-name">Probiotic Complex</div>
+                                <div class="order-date">Jun 5, 2023</div>
+                            </div>
+                            <div class="order-status shipped">Shipped</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Upcoming Appointments -->
+                <div class="card appointments">
+                    <div class="card-header">
+                        <h3>Upcoming Appointments</h3>
+                        <a href="appointments.html" class="btn-text">Schedule New</a>
+                    </div>
+                    <div class="appointment-list">
+                        <div class="appointment-item">
+                            <div class="appointment-date">
+                                <div class="date-day">15</div>
+                                <div class="date-month">Jun</div>
+                            </div>
+                            <div class="appointment-details">
+                                <div class="doctor-name">Dr. Sarah Johnson</div>
+                                <div class="appointment-time">10:30 AM - 11:15 AM</div>
+                            </div>
+                            <button class="btn-icon">
+                                <i class="icon-options"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Health Tips -->
+                <div class="card health-tips">
+                    <h3>Today's Health Tip</h3>
+                    <div class="tip-content">
+                        <div class="tip-image"></div>
+                        <div class="tip-text">
+                            <h4>Stay Hydrated</h4>
+                            <p>Drinking enough water helps maintain the balance of body fluids, aids digestion, and keeps your skin healthy. Aim for 8 glasses today!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/patient.js"></script>
+</body>
+</html>

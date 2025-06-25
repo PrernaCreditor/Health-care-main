@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitapure  Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="well.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>VitaPure+</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li class="active" data-tab="overview"><i class="fas fa-home"></i> Overview</li>
+                    <li data-tab="wellness"><i class="fas fa-chart-line"></i> Wellness Tracker</li>
+                    <li data-tab="diet"><i class="fas fa-utensils"></i> Diet Planner</li>
+                    <li data-tab="mental-health"><i class="fas fa-brain"></i> Mental Health</li>
+                    <li data-tab="shop"><i class="fas fa-shopping-bag"></i> Wellness Shop</li>
+                    <li data-tab="messages"><i class="fas fa-envelope"></i> Messages</li>
+                    <li data-tab="profile"><i class="fas fa-user"></i> Profile</li>
+                    <li data-tab="settings"><i class="fas fa-cog"></i> Settings</li>
+                </ul>
+            </nav>
+            <div class="membership-status">
+                <div class="status-indicator"></div>
+                <span>Premium Member</span>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+                <div class="user-actions">
+                    <div class="notification-bell">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </div>
+                    <div class="user-profile">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User profile">
+                        <span>User</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Tab Content Sections -->
+            <section class="tab-content active" id="overview">
+                <h1>Welcome Back, User!</h1>
+                <div class="overview-grid">
+                    <div class="card wellness-summary">
+                        <h2>Your Wellness Summary</h2>
+                        <div class="summary-stats">
+                            <div class="stat">
+                                <div class="stat-value" id="sleep-score">7.2</div>
+                                <div class="stat-label">Sleep (hrs)</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value" id="hydration-score">8</div>
+                                <div class="stat-label">Hydration</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value" id="activity-score">75%</div>
+                                <div class="stat-label">Activity</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value" id="stress-score">30%</div>
+                                <div class="stat-label">Stress</div>
+                            </div>
+                        </div>
+                        <canvas id="wellnessChart"></canvas>
+                    </div>
+
+                    <div class="card quick-actions">
+                        <h2>Quick Actions</h2>
+                        <div class="action-buttons">
+                            <button class="action-btn" id="log-meal">
+                                <i class="fas fa-utensils"></i>
+                                <span>Log Meal</span>
+                            </button>
+                            <button class="action-btn" id="track-workout">
+                                <i class="fas fa-running"></i>
+                                <span>Track Workout</span>
+                            </button>
+                            <button class="action-btn" id="journal-entry">
+                                <i class="fas fa-book"></i>
+                                <span>Journal Entry</span>
+                            </button>
+                            <button class="action-btn" id="meditate-now">
+                                <i class="fas fa-spa"></i>
+                                <span>Meditate Now</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card recent-activity">
+                        <h2>Recent Activity</h2>
+                        <ul class="activity-list">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Logged breakfast - 450 cal</span>
+                                <span class="activity-time">2h ago</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Completed morning meditation</span>
+                                <span class="activity-time">4h ago</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Tracked 30min yoga session</span>
+                                <span class="activity-time">Yesterday</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Purchased protein powder</span>
+                                <span class="activity-time">2 days ago</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="card premium-content">
+                        <h2>Premium Content</h2>
+                        <div class="premium-grid">
+                            <div class="premium-item">
+                                <div class="premium-icon">
+                                    <i class="fas fa-video"></i>
+                                </div>
+                                <h3>Guided Meditation Series</h3>
+                                <p>Reduce stress with our expert-led sessions</p>
+                                <button class="btn-access">Access Now</button>
+                            </div>
+                            <div class="premium-item">
+                                <div class="premium-icon">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                                <h3>Personalized Meal Plans</h3>
+                                <p>Customized for your dietary needs</p>
+                                <button class="btn-access">View Plans</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+   <!-- Add these inside the main-content div, after the overview section -->
+
+<!-- Wellness Tracker Section -->
+<section class="tab-content" id="wellness">
+    <div class="section-header">
+        <h1>Wellness Tracker</h1>
+        <p>Monitor your health metrics and progress</p>
+    </div>
+    
+    <div class="wellness-grid">
+        <div class="card metric-tracker">
+            <h2><i class="fas fa-heartbeat"></i> Health Metrics</h2>
+            <div class="metric-controls">
+                <div class="metric">
+                    <label>Sleep (hours)</label>
+                    <input type="range" min="0" max="12" step="0.5" value="7.5" id="sleep-slider">
+                    <span id="sleep-value">7.5</span>
+                </div>
+                <div class="metric">
+                    <label>Water (glasses)</label>
+                    <div class="water-buttons">
+                        <button class="water-btn" data-change="-1"><i class="fas fa-minus"></i></button>
+                        <span id="water-value">8</span>
+                        <button class="water-btn" data-change="1"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+                <div class="metric">
+                    <label>Activity Level</label>
+                    <div class="activity-stars">
+                        <i class="fas fa-star" data-rating="1"></i>
+                        <i class="fas fa-star" data-rating="2"></i>
+                        <i class="fas fa-star" data-rating="3"></i>
+                        <i class="fas fa-star" data-rating="4"></i>
+                        <i class="fas fa-star" data-rating="5"></i>
+                    </div>
+                </div>
+            </div>
+            <button class="btn-save">Save Today's Metrics</button>
+        </div>
+        
+        <div class="card habit-tracker">
+            <h2><i class="fas fa-calendar-check"></i> Habit Tracker</h2>
+            <div class="habit-grid">
+                <div class="habit-header">Habit</div>
+                <div class="habit-header">Mon</div>
+                <div class="habit-header">Tue</div>
+                <div class="habit-header">Wed</div>
+                <div class="habit-header">Thu</div>
+                <div class="habit-header">Fri</div>
+                <div class="habit-header">Sat</div>
+                <div class="habit-header">Sun</div>
+                
+                <div class="habit-name">Morning Meditation</div>
+                <div class="habit-day"><i class="fas fa-check"></i></div>
+                <div class="habit-day"><i class="fas fa-check"></i></div>
+                <div class="habit-day"><i class="fas fa-check"></i></div>
+                <div class="habit-day"><i class="fas fa-times"></i></div>
+                <div class="habit-day"><i class="fas fa-check"></i></div>
+                <div class="habit-day"></div>
+                <div class="habit-day"></div>
+                
+                <div class="habit-name">Evening Walk</div>
+                <div class="habit-day"><i class="fas fa-check"></i></div>
+                <div class="habit-day"><i class="fas fa-check"></i></div>
+                <div class="habit-day"><i class="fas fa-times"></i></div>
+                <div class="habit-day"><i class="fas fa-times"></i></div>
+                <div class="habit-day"><i class="fas fa-check"></i></div>
+                <div class="habit-day"></div>
+                <div class="habit-day"></div>
+                
+                <div class="habit-name">No Sugar</div>
+                <div class="habit-day"><i class="fas fa-check"></i></div>
+                <div class="habit-day"><i class="fas fa-times"></i></div>
+                <div class="habit-day"><i class="fas fa-check"></i></div>
+                <div class="habit-day"><i class="fas fa-check"></i></div>
+                <div class="habit-day"><i class="fas fa-check"></i></div>
+                <div class="habit-day"></div>
+                <div class="habit-day"></div>
+            </div>
+            <button class="btn-add-habit"><i class="fas fa-plus"></i> Add New Habit</button>
+        </div>
+        
+        <div class="card wellness-goals">
+            <h2><i class="fas fa-bullseye"></i> Current Goals</h2>
+            <div class="goal">
+                <div class="goal-info">
+                    <h3>Improve Sleep Quality</h3>
+                    <p>Target: 8 hours/night | Current: 7.2</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 75%"></div>
+                    </div>
+                </div>
+                <button class="btn-goal-details">Details</button>
+            </div>
+            <div class="goal">
+                <div class="goal-info">
+                    <h3>Increase Water Intake</h3>
+                    <p>Target: 10 glasses/day | Current: 8</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 80%"></div>
+                    </div>
+                </div>
+                <button class="btn-goal-details">Details</button>
+            </div>
+            <div class="goal">
+                <div class="goal-info">
+                    <h3>Daily Meditation</h3>
+                    <p>Target: 7 days/week | Current: 5</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 71%"></div>
+                    </div>
+                </div>
+                <button class="btn-goal-details">Details</button>
+            </div>
+            <button class="btn-new-goal"><i class="fas fa-plus"></i> Set New Goal</button>
+        </div>
+    </div>
+</section>
+
+<!-- Diet Planner Section -->
+<section class="tab-content" id="diet">
+    <div class="section-header">
+        <h1>Diet Planner</h1>
+        <p>Plan your meals and track nutrition</p>
+    </div>
+    
+    <div class="diet-grid">
+        <div class="card meal-planner">
+            <h2><i class="fas fa-calendar-alt"></i> Weekly Meal Plan</h2>
+            <div class="meal-tabs">
+                <button class="meal-tab active" data-day="monday">Monday</button>
+                <button class="meal-tab" data-day="tuesday">Tuesday</button>
+                <button class="meal-tab" data-day="wednesday">Wednesday</button>
+                <button class="meal-tab" data-day="thursday">Thursday</button>
+                <button class="meal-tab" data-day="friday">Friday</button>
+            </div>
+            
+            <div class="meal-day active" id="monday">
+                <div class="meal-time">
+                    <h3>Breakfast</h3>
+                    <div class="meal-item">
+                        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061" alt="Smoothie Bowl">
+                        <div class="meal-details">
+                            <h4>Berry Smoothie Bowl</h4>
+                            <p>450 cal | 18g protein</p>
+                        </div>
+                        <button class="btn-meal-options"><i class="fas fa-ellipsis-v"></i></button>
+                    </div>
+                </div>
+                
+                <div class="meal-time">
+                    <h3>Lunch</h3>
+                    <div class="meal-item">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c" alt="Salad">
+                        <div class="meal-details">
+                            <h4>Quinoa Salad</h4>
+                            <p>520 cal | 22g protein</p>
+                        </div>
+                        <button class="btn-meal-options"><i class="fas fa-ellipsis-v"></i></button>
+                    </div>
+                </div>
+                
+                <div class="meal-time">
+                    <h3>Dinner</h3>
+                    <div class="meal-item">
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd" alt="Salmon">
+                        <div class="meal-details">
+                            <h4>Grilled Salmon</h4>
+                            <p>600 cal | 40g protein</p>
+                        </div>
+                        <button class="btn-meal-options"><i class="fas fa-ellipsis-v"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Other days would go here -->
+        </div>
+        
+        <div class="card nutrition-summary">
+            <h2><i class="fas fa-chart-pie"></i> Nutrition Summary</h2>
+            <div class="macros">
+                <div class="macro">
+                    <div class="macro-circle" id="protein-circle"></div>
+                    <h3>Protein</h3>
+                    <p>120g / 150g</p>
+                </div>
+                <div class="macro">
+                    <div class="macro-circle" id="carbs-circle"></div>
+                    <h3>Carbs</h3>
+                    <p>180g / 200g</p>
+                </div>
+                <div class="macro">
+                    <div class="macro-circle" id="fat-circle"></div>
+                    <h3>Fat</h3>
+                    <p>50g / 65g</p>
+                </div>
+            </div>
+            <canvas id="nutritionChart"></canvas>
+            <div class="calorie-summary">
+                <h3>Total Calories: <span>1850</span> / 2200</h3>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 75%"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card recipe-finder">
+            <h2><i class="fas fa-search"></i> Recipe Finder</h2>
+            <div class="recipe-search">
+                <input type="text" placeholder="Search for healthy recipes...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="recipe-filters">
+                <span>Filter by:</span>
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Low-carb</button>
+                <button class="filter-btn">High-protein</button>
+                <button class="filter-btn">Vegan</button>
+            </div>
+            <div class="recipe-results">
+                <div class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061" alt="Recipe">
+                    <div class="recipe-info">
+                        <h3>Avocado Toast</h3>
+                        <p>320 cal | 12g protein</p>
+                        <div class="recipe-tags">
+                            <span>Vegetarian</span>
+                            <span>Quick</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c" alt="Recipe">
+                    <div class="recipe-info">
+                        <h3>Greek Salad</h3>
+                        <p>280 cal | 15g protein</p>
+                        <div class="recipe-tags">
+                            <span>Low-carb</span>
+                            <span>Vegetarian</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn-view-all">View All Recipes</button>
+        </div>
+    </div>
+</section>
+
+<!-- Mental Health Section -->
+<section class="tab-content" id="mental-health">
+    <div class="section-header">
+        <h1>Mental Health Support</h1>
+        <p>Resources for your emotional wellbeing</p>
+    </div>
+    
+    <div class="mental-health-grid">
+        <div class="card mood-tracker">
+            <h2><i class="fas fa-smile"></i> Mood Tracker</h2>
+            <div class="mood-options">
+                <button class="mood-option" data-mood="happy">
+                    <i class="fas fa-laugh-beam"></i>
+                    <span>Happy</span>
+                </button>
+                <button class="mood-option" data-mood="calm">
+                    <i class="fas fa-smile"></i>
+                    <span>Calm</span>
+                </button>
+                <button class="mood-option" data-mood="neutral">
+                    <i class="fas fa-meh"></i>
+                    <span>Neutral</span>
+                </button>
+                <button class="mood-option" data-mood="anxious">
+                    <i class="fas fa-flushed"></i>
+                    <span>Anxious</span>
+                </button>
+                <button class="mood-option" data-mood="sad">
+                    <i class="fas fa-sad-tear"></i>
+                    <span>Sad</span>
+                </button>
+            </div>
+            <div class="mood-history">
+                <h3>Your Mood This Week</h3>
+                <canvas id="moodChart"></canvas>
+            </div>
+        </div>
+        
+        <div class="card meditation-player">
+            <h2><i class="fas fa-spa"></i> Meditation & Relaxation</h2>
+            <div class="meditation-now">
+                <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597" alt="Meditation">
+                <div class="meditation-info">
+                    <h3>Daily Calm</h3>
+                    <p>10 minute mindfulness session</p>
+                    <div class="player-controls">
+                        <button class="player-btn"><i class="fas fa-step-backward"></i></button>
+                        <button class="player-btn play-btn"><i class="fas fa-play"></i></button>
+                        <button class="player-btn"><i class="fas fa-step-forward"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="meditation-programs">
+                <h3>Recommended Programs</h3>
+                <div class="program">
+                    <i class="fas fa-moon"></i>
+                    <div class="program-info">
+                        <h4>Sleep Stories</h4>
+                        <p>Guided narratives to help you fall asleep</p>
+                    </div>
+                    <button class="btn-start">Start</button>
+                </div>
+                <div class="program">
+                    <i class="fas fa-wind"></i>
+                    <div class="program-info">
+                        <h4>Breathing Exercises</h4>
+                        <p>Reduce stress with controlled breathing</p>
+                    </div>
+                    <button class="btn-start">Start</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card journal-section">
+            <h2><i class="fas fa-book-open"></i> Wellness Journal</h2>
+            <div class="journal-entry">
+                <textarea placeholder="How are you feeling today? Write your thoughts..."></textarea>
+                <div class="journal-tags">
+                    <span>Tags:</span>
+                    <button class="tag-btn">Gratitude</button>
+                    <button class="tag-btn">Reflection</button>
+                    <button class="tag-btn">Goal</button>
+                </div>
+                <button class="btn-save-entry">Save Entry</button>
+            </div>
+            <div class="journal-history">
+                <h3>Recent Entries</h3>
+                <div class="entry">
+                    <div class="entry-date">Today</div>
+                    <div class="entry-preview">Feeling energized after my morning workout...</div>
+                    <button class="btn-view-entry"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="entry">
+                    <div class="entry-date">Yesterday</div>
+                    <div class="entry-preview">Struggled with sleep last night...</div>
+                    <button class="btn-view-entry"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Wellness Shop Section -->
+<section class="tab-content" id="shop">
+    <div class="section-header">
+        <h1>Wellness Shop</h1>
+        <p>Quality products for your health journey</p>
+    </div>
+    
+    <div class="shop-controls">
+        <div class="shop-search">
+            <input type="text" placeholder="Search products...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+        <div class="shop-categories">
+            <button class="category-btn active">All</button>
+            <button class="category-btn">Vitamins</button>
+            <button class="category-btn">Fitness</button>
+            <button class="category-btn">Mindfulness</button>
+            <button class="category-btn">Nutrition</button>
+        </div>
+    </div>
+    
+    <div class="shop-grid">
+        <div class="product-card">
+            <div class="product-badge">Bestseller</div>
+            <img src="https://images.unsplash.com/photo-1599707367072-cd6ada2bc375" alt="Protein Powder">
+            <div class="product-info">
+                <h3>Plant-Based Protein</h3>
+                <p>Organic vegan protein powder with 20g per serving</p>
+                <div class="product-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>4.5 (128)</span>
+                </div>
+                <div class="product-price">
+                    <span class="current-price">$29.99</span>
+                    <span class="original-price">$39.99</span>
+                </div>
+            </div>
+            <button class="btn-add-to-cart">Add to Cart</button>
+        </div>
+        
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7" alt="Yoga Mat">
+            <div class="product-info">
+                <h3>Premium Yoga Mat</h3>
+                <p>Eco-friendly non-slip mat with carrying strap</p>
+                <div class="product-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span>5.0 (87)</span>
+                </div>
+                <div class="product-price">
+                    <span class="current-price">$45.00</span>
+                </div>
+            </div>
+            <button class="btn-add-to-cart">Add to Cart</button>
+        </div>
+        
+        <!-- More product cards would go here -->
+    </div>
+    
+    <div class="cart-preview">
+        <h2><i class="fas fa-shopping-cart"></i> Your Cart <span class="cart-count">2</span></h2>
+        <div class="cart-items">
+            <div class="cart-item">
+                <img src="https://images.unsplash.com/photo-1599707367072-cd6ada2bc375" alt="Product">
+                <div class="cart-item-info">
+                    <h4>Plant-Based Protein</h4>
+                    <p>$29.99 × 1</p>
+                </div>
+                <button class="btn-remove-item"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="cart-item">
+                <img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7" alt="Product">
+                <div class="cart-item-info">
+                    <h4>Premium Yoga Mat</h4>
+                    <p>$45.00 × 1</p>
+                </div>
+                <button class="btn-remove-item"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
+        <div class="cart-total">
+            <span>Total:</span>
+            <span>$74.99</span>
+        </div>
+        <button class="btn-checkout">Proceed to Checkout</button>
+    </div>
+</section>
+
+<!-- Messages Section -->
+<section class="tab-content" id="messages">
+    <div class="section-header">
+        <h1>Messages</h1>
+        <p>Connect with wellness experts and community</p>
+    </div>
+    
+    <div class="messages-container">
+        <div class="conversation-list">
+            <div class="conversation active">
+                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Profile">
+                <div class="conversation-info">
+                    <h3>Dr. Emily Wilson</h3>
+                    <p>Nutritionist</p>
+                    <span class="last-message">About your meal plan questions...</span>
+                </div>
+                <span class="message-time">2h ago</span>
+            </div>
+            <div class="conversation unread">
+                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Profile">
+                <div class="conversation-info">
+                    <h3>Wellness Support</h3>
+                    <p>Customer Care</p>
+                    <span class="last-message">Your recent order has shipped!</span>
+                </div>
+                <span class="message-time">Yesterday</span>
+                <span class="unread-badge">3</span>
+            </div>
+            <div class="conversation">
+                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Profile">
+                <div class="conversation-info">
+                    <h3>Sarah Johnson</h3>
+                    <p>Meditation Group</p>
+                    <span class="last-message">Thanks for joining our session!</span>
+                </div>
+                <span class="message-time">3 days ago</span>
+            </div>
+        </div>
+        
+        <div class="message-view">
+            <div class="message-header">
+                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Profile">
+                <div class="recipient-info">
+                    <h3>Dr. Emily Wilson</h3>
+                    <p>Nutritionist</p>
+                </div>
+                <button class="btn-message-options"><i class="fas fa-ellipsis-v"></i></button>
+            </div>
+            
+            <div class="message-history">
+                <div class="message received">
+                    <div class="message-content">
+                        <p>Hi Sarah, I've reviewed your meal plan questions and have some suggestions.</p>
+                        <span class="message-time">10:30 AM</span>
+                    </div>
+                </div>
+                <div class="message sent">
+                    <div class="message-content">
+                        <p>Thank you! I was particularly wondering about protein alternatives.</p>
+                        <span class="message-time">10:45 AM</span>
+                    </div>
+                </div>
+                <div class="message received">
+                    <div class="message-content">
+                        <p>For plant-based options, I'd recommend lentils, quinoa, and tempeh as great sources.</p>
+                        <span class="message-time">11:02 AM</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="message-compose">
+                <textarea placeholder="Type your message..."></textarea>
+                <div class="compose-actions">
+                    <button class="btn-attach"><i class="fas fa-paperclip"></i></button>
+                    <button class="btn-send">Send <i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Profile Section -->
+<section class="tab-content" id="profile">
+    <div class="section-header">
+        <h1>My Profile</h1>
+        <p>Manage your personal information and preferences</p>
+    </div>
+    
+    <div class="profile-container">
+        <div class="card profile-card">
+            <div class="profile-header">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Profile" class="profile-photo">
+                <div class="profile-info">
+                    <h2>Sarah Johnson</h2>
+                    <p>Premium Member since June 2023</p>
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <span class="stat-number">142</span>
+                            <span class="stat-label">Wellness Days</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">28</span>
+                            <span class="stat-label">Goals Achieved</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-edit-profile">Edit Profile</button>
+            </div>
+            
+            <div class="profile-details">
+                <div class="detail">
+                    <span class="detail-label">Email</span>
+                    <span class="detail-value">sarah.johnson@example.com</span>
+                </div>
+                <div class="detail">
+                    <span class="detail-label">Location</span>
+                    <span class="detail-value">Portland, OR</span>
+                </div>
+                <div class="detail">
+                    <span class="detail-label">Birthday</span>
+                    <span class="detail-value">March 15, 1988</span>
+                </div>
+                <div class="detail">
+                    <span class="detail-label">Health Goals</span>
+                    <span class="detail-value">Improve sleep, Reduce stress, Build strength</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card achievements-card">
+            <h2><i class="fas fa-trophy"></i> Achievements</h2>
+            <div class="achievements-grid">
+                <div class="achievement unlocked">
+                    <div class="achievement-icon">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <h3>Sleep Champion</h3>
+                    <p>7+ hours for 30 consecutive days</p>
+                </div>
+                <div class="achievement unlocked">
+                    <div class="achievement-icon">
+                        <i class="fas fa-glass-whiskey"></i>
+                    </div>
+                    <h3>Hydration Hero</h3>
+                    <p>8+ glasses daily for 2 weeks</p>
+                </div>
+                <div class="achievement locked">
+                    <div class="achievement-icon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <h3>Fitness Streak</h3>
+                    <p>30 days of activity</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card preferences-card">
+            <h2><i class="fas fa-cog"></i> Preferences</h2>
+            <div class="preference">
+                <h3>Dietary Preferences</h3>
+                <div class="preference-options">
+                    <label class="checkbox-container">Vegetarian
+                        <input type="checkbox" checked>
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">Dairy-free
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">Gluten-free
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="preference">
+                <h3>Notification Preferences</h3>
+                <div class="preference-options">
+                    <label class="switch-container">Email Notifications
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <label class="switch-container">Push Notifications
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <label class="switch-container">SMS Reminders
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+            <button class="btn-save-preferences">Save Preferences</button>
+        </div>
+    </div>
+</section>
+
+<!-- Settings Section -->
+<section class="tab-content" id="settings">
+    <div class="section-header">
+        <h1>Settings</h1>
+        <p>Configure your account and app preferences</p>
+    </div>
+    
+    <div class="settings-container">
+        <div class="card account-settings">
+            <h2><i class="fas fa-user-cog"></i> Account Settings</h2>
+            <div class="setting">
+                <h3>Change Password</h3>
+                <div class="password-form">
+                    <input type="password" placeholder="Current password">
+                    <input type="password" placeholder="New password">
+                    <input type="password" placeholder="Confirm new password">
+                    <button class="btn-update">Update Password</button>
+                </div>
+            </div>
+            <div class="setting">
+                <h3>Two-Factor Authentication</h3>
+                <div class="setting-toggle">
+                    <span>Add extra security to your account</span>
+                    <label class="switch-container">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="setting">
+                <h3>Account Privacy</h3>
+                <div class="privacy-options">
+                    <label class="radio-container">Public
+                        <input type="radio" name="privacy" checked>
+                        <span class="radiomark"></span>
+                    </label>
+                    <label class="radio-container">Private
+                        <input type="radio" name="privacy">
+                        <span class="radiomark"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card app-settings">
+            <h2><i class="fas fa-mobile-alt"></i> App Settings</h2>
+            <div class="setting">
+                <h3>Theme</h3>
+                <div class="theme-options">
+                    <div class="theme-option active" data-theme="light">
+                        <div class="theme-preview light"></div>
+                        <span>Light</span>
+                    </div>
+                    <div class="theme-option" data-theme="dark">
+                        <div class="theme-preview dark"></div>
+                        <span>Dark</span>
+                    </div>
+                    <div class="theme-option" data-theme="system">
+                        <div class="theme-preview system"></div>
+                        <span>System</span>
+                    </div>
+                </div>
+            </div>
+            <div class="setting">
+                <h3>Data & Storage</h3>
+                <div class="storage-info">
+                    <p>App usage: 1.2 GB</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 30%"></div>
+                    </div>
+                    <button class="btn-clear-cache">Clear Cache</button>
+                </div>
+            </div>
+            <div class="setting">
+                <h3>Health Data Access</h3>
+                <div class="health-integrations">
+                    <div class="integration">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Apple_Health_icon_%282018%29.png" alt="Apple Health">
+                        <span>Apple Health</span>
+                        <label class="switch-container">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="integration">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Google_Fit_icon_%282020%29.png" alt="Google Fit">
+                        <span>Google Fit</span>
+                        <label class="switch-container">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card support-section">
+            <h2><i class="fas fa-question-circle"></i> Support</h2>
+            <div class="support-option">
+                <i class="fas fa-book"></i>
+                <div class="support-info">
+                    <h3>Help Center</h3>
+                    <p>Find answers to common questions</p>
+                </div>
+                <button class="btn-support-action">View</button>
+            </div>
+            <div class="support-option">
+                <i class="fas fa-envelope"></i>
+                <div class="support-info">
+                    <h3>Contact Us</h3>
+                    <p>Send us a message</p>
+                </div>
+                <button class="btn-support-action">Contact</button>
+            </div>
+            <div class="support-option">
+                <i class="fas fa-info-circle"></i>
+                <div class="support-info">
+                    <h3>About WellnessHub</h3>
+                    <p>Version 2.4.1</p>
+                </div>
+                <button class="btn-support-action">Details</button>
+            </div>
+            <button class="btn-logout" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i> Log Out
+            </button>
+        </div>
+    </div>
+</section>
+        </main>
+
+        <!-- Chatbot Assistant -->
+        <div class="chatbot-container">
+            <button class="chatbot-toggle">
+                <i class="fas fa-robot"></i>
+            </button>
+            <div class="chatbot-window">
+                <div class="chatbot-header">
+                    <h3>Wellness Assistant</h3>
+                    <button class="close-chatbot"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="chatbot-messages">
+                    <div class="message bot">
+                        <p>Hello! I'm your wellness assistant. How can I help you today?</p>
+                    </div>
+                </div>
+                <div class="chatbot-input">
+                    <input type="text" placeholder="Ask me about wellness...">
+                    <button class="send-btn"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="well.js"></script>
+</body>
+</html>

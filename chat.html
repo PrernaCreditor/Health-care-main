@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+  /* Chatbot Styles - Customized for VitaPure+ */
+  #chatbot-container {
+    position: fixed;
+    bottom: 90px;
+    right: 30px;
+    width: 350px;
+    height: 500px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .chatbot-hidden {
+    transform: translateY(20px);
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  .chatbot-header {
+    background-color: #4a8c5e; /* VitaPure+ green */
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .chatbot-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  #chatbot-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+  }
+  
+  #chatbot-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #ffffff;
+  }
+  
+  .chatbot-message {
+    margin-bottom: 15px;
+    max-width: 80%;
+    padding: 10px 15px;
+    border-radius: 18px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  
+  .user-message {
+    background-color: #e3f2fd;
+    margin-left: auto;
+    border-bottom-right-radius: 5px;
+    color: #0d47a1;
+  }
+  
+  .bot-message {
+    background-color: #f1f1f1;
+    margin-right: auto;
+    border-bottom-left-radius: 5px;
+    color: #333;
+  }
+  
+  .chatbot-input-area {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #e0e0e0;
+    background-color: #f8f9fa;
+  }
+  
+  #chatbot-input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+    font-size: 14px;
+  }
+  
+  #chatbot-send {
+    background-color: #4a8c5e; /* VitaPure+ green */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 0 15px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  #chatbot-send:hover {
+    background-color: #3a7a4e;
+  }
+  
+  .chatbot-toggle-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #4a8c5e; /* VitaPure+ green */
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    transition: all 0.3s ease;
+  }
+  
+  .chatbot-toggle-btn:hover {
+    background-color: #3a7a4e;
+    transform: scale(1.05);
+  }
+  
+  .chatbot-toggle-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  /* Typing indicator */
+  .typing-indicator {
+    display: flex;
+    padding: 10px 15px;
+  }
+  
+  .typing-indicator span {
+    height: 8px;
+    width: 8px;
+    background-color: #999;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 2px;
+    animation: bounce 1.5s infinite ease-in-out;
+  }
+  
+  .typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  
+  @keyframes bounce {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-5px); }
+  }
+</style>
+</head>
+
+<body>
+    <!-- AI Chatbot Widget -->
+<div id="chatbot-container" class="chatbot-hidden">
+  <div class="chatbot-header">
+    <h3>VitaPure+ Assistant</h3>
+    <button id="chatbot-close">×</button>
+  </div>
+  <div id="chatbot-messages"></div>
+  <div class="chatbot-input-area">
+    <input type="text" id="chatbot-input" placeholder="Ask me about VitaPure+ products..." />
+    <button id="chatbot-send">Send</button>
+  </div>
+</div>
+<button id="chatbot-toggle" class="chatbot-toggle-btn">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+  </svg>
+</button>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const chatbotContainer = document.getElementById('chatbot-container');
+    const chatbotToggle = document.getElementById('chatbot-toggle');
+    const chatbotClose = document.getElementById('chatbot-close');
+    const chatbotInput = document.getElementById('chatbot-input');
+    const chatbotSend = document.getElementById('chatbot-send');
+    const chatbotMessages = document.getElementById('chatbot-messages');
+    
+    let isChatbotOpen = false;
+    
+    // Toggle chatbot visibility
+    chatbotToggle.addEventListener('click', function() {
+      isChatbotOpen = !isChatbotOpen;
+      if (isChatbotOpen) {
+        chatbotContainer.classList.remove('chatbot-hidden');
+        chatbotInput.focus();
+      } else {
+        chatbotContainer.classList.add('chatbot-hidden');
+      }
+    });
+    
+    // Close chatbot
+    chatbotClose.addEventListener('click', function() {
+      isChatbotOpen = false;
+      chatbotContainer.classList.add('chatbot-hidden');
+    });
+    
+    // Send message on button click
+    chatbotSend.addEventListener('click', sendMessage);
+    
+    // Send message on Enter key
+    chatbotInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        sendMessage();
+      }
+    });
+    
+    function sendMessage() {
+      const message = chatbotInput.value.trim();
+      if (message === '') return;
+      
+      // Add user message to chat
+      addMessage(message, 'user');
+      chatbotInput.value = '';
+      
+      // Show typing indicator
+      showTypingIndicator();
+      
+      // Simulate bot response after a short delay
+      setTimeout(() => {
+        removeTypingIndicator();
+        const botResponse = getBotResponse(message);
+        addMessage(botResponse, 'bot');
+      }, 1000 + Math.random() * 2000);
+    }
+    
+    function addMessage(text, sender) {
+      const messageElement = document.createElement('div');
+      messageElement.classList.add('chatbot-message', sender + '-message');
+      messageElement.textContent = text;
+      chatbotMessages.appendChild(messageElement);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+    
+    function showTypingIndicator() {
+      const typingElement = document.createElement('div');
+      typingElement.classList.add('typing-indicator');
+      typingElement.id = 'typing-indicator';
+      typingElement.innerHTML = '<span></span><span></span><span></span>';
+      chatbotMessages.appendChild(typingElement);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+    
+    function removeTypingIndicator() {
+      const typingElement = document.getElementById('typing-indicator');
+      if (typingElement) {
+        typingElement.remove();
+      }
+    }
+    
+    // Simple response logic - you can replace this with actual API calls to an AI service
+    function getBotResponse(userMessage) {
+      const lowerMessage = userMessage.toLowerCase();
+      
+      // Product-related questions
+      if (lowerMessage.includes('product') || lowerMessage.includes('supplement')) {
+        return "VitaPure+ offers premium, all-natural supplements. Our products are carefully formulated with organic ingredients to support your health and wellness goals.";
+      }
+      if (lowerMessage.includes('vitamin') || lowerMessage.includes('mineral')) {
+        return "We have a range of vitamins and minerals including Vitamin D3, Magnesium Complex, and our bestselling Multivitamin Blend. Each is designed for optimal absorption.";
+      }
+      
+      // Shipping/ordering questions
+      if (lowerMessage.includes('ship') || lowerMessage.includes('deliver')) {
+        return "We offer free shipping on orders over $50. Most orders ship within 1-2 business days and delivery typically takes 3-5 business days in the US.";
+      }
+      if (lowerMessage.includes('order') || lowerMessage.includes('purchase')) {
+        return "You can order directly from our website. Just select your products, proceed to checkout, and choose your payment method. We accept all major credit cards and PayPal.";
+      }
+      
+      // Health questions
+      if (lowerMessage.includes('benefit') || lowerMessage.includes('help')) {
+        return "Our supplements support various aspects of health including immunity, energy, digestion, and overall wellness. For specific recommendations, please consult with your healthcare provider.";
+      }
+      
+      // General questions
+      if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
+        return "Hello! I'm the VitaPure+ assistant. How can I help you today?";
+      }
+      if (lowerMessage.includes('thank')) {
+        return "You're welcome! Is there anything else I can help you with?";
+      }
+      
+      // Default response
+      const defaultResponses = [
+        "I'm not sure I understand. Could you rephrase that?",
+        "I'm here to help with questions about VitaPure+ products and services.",
+        "For more detailed assistance, you might want to contact our customer service team.",
+        "That's an interesting question! Let me check our resources... I recommend visiting our FAQ page for more information."
+      ];
+      return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
+    }
+    
+    // Add welcome message when first opened
+    chatbotToggle.addEventListener('click', function firstOpen() {
+      if (!isChatbotOpen) return;
+      addMessage("Welcome to VitaPure+! I'm your wellness assistant. How can I help you today?", 'bot');
+      chatbotToggle.removeEventListener('click', firstOpen);
+    }, { once: true });
+  });
+</script>
+</body>
+</html>
