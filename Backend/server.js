@@ -18,12 +18,14 @@ const isLocal = process.env.NODE_ENV !== 'production';
 
 // Middleware
 app.use(cors({
-  origin: isLocal
-    ? "http://localhost:3000"
-    : "https://prernacreditor.github.io",
+  origin: [
+    "http://localhost:3000",
+    "http://127.0.0.1:5500",        // Local development (Live Server)
+    "https://prernacreditor.github.io" // Your deployed frontend
+  ],
   credentials: true,
 }));
-app.use(express.json());
+
 
 // Session middleware (required for Passport)
 app.use(session({
