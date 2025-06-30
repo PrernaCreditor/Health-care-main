@@ -25,6 +25,8 @@ app.use(cors({
   ],
   credentials: true,
 }));
+app.use(express.json()); // For parsing application/json
+app.use(express.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded
 
 
 // Session middleware (required for Passport)
