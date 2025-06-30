@@ -332,6 +332,6 @@ async function resetPassword(email) {
 // Google Login Button
   document.getElementById("google-login-btn").addEventListener("click", () => {
     // Redirect to Google login (backend route)
-    window.location.href = "http://localhost:8000/auth/google";
+    window.location.href = "https://health-care-main.onrender.com/auth/google";
   });
 
