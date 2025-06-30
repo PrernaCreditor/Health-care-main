@@ -92,8 +92,8 @@ app.get('/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/' }),
   (req, res) => {
     const redirectURL = isLocal
-      ? 'http://localhost:3000/dashboard.html'
-      : 'https://prernacreditor.github.io/Health-care-main/dashboard.html';
+      ? 'http://localhost:3000/well.html'
+      : 'https://prernacreditor.github.io/Health-care-main/well.html';
     res.redirect(redirectURL);
   }
 );
