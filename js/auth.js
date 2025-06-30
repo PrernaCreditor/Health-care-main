@@ -329,3 +329,9 @@ async function resetPassword(email) {
         if (input.value) input.nextElementSibling?.classList.add('active');
     });
 });
+// Google Login Button
+  document.getElementById("google-login-btn").addEventListener("click", () => {
+    // Redirect to Google login (backend route)
+    window.location.href = "http://localhost:8000/auth/google";
+  });
+
