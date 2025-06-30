@@ -226,39 +226,74 @@
         
         // Form Submission
         const contactForm = document.getElementById('contactForm');
-        const newsletterForm = document.getElementById('newsletterForm');
-        const successModal = document.getElementById('successModal');
-        const closeModal = document.getElementById('closeModal');
-        
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Here you would typically send the form data to a server
-            // For this template, we'll just show the success modal
-            successModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            
-            // Reset form
-            contactForm.reset();
-        });
-        
+    const newsletterForm = document.getElementById('newsletterForm');
+    const successModal = document.getElementById('successModal');
+    const closeModal = document.getElementById('closeModal');
+
+    // Contact form submission with backend integration
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById("contactName").value.trim();
+        const email = document.getElementById("contactEmail").value.trim();
+        const phone = document.getElementById("contactPhone").value.trim();
+        const program = document.getElementById("contactProgram").value;
+        const message = document.getElementById("contactMessage").value.trim();
+
+        if (!name || !email || !message) {
+            alert("❌ Name, Email, and Message are required.");
+            return;
+        }
+
+        const data = { name, email, phone, program, message };
+        console.log("📤 Sending:", data);
+
+        try {
+            const res = await fetch("http://localhost:8000/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+
+            const result = await res.json();
+
+            if (res.ok) {
+                console.log("✅ Submitted:", result);
+                successModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                contactForm.reset();
+            } else {
+                alert("❌ Error: " + (result.message || "Server error"));
+            }
+        } catch (error) {
+            console.error("❌ Submit error:", error);
+            alert("❌ Failed to send message. Try again later.");
+        }
+    });
+
+    // Newsletter form (optional)
+    if (newsletterForm) {
         newsletterForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            
-            // Here you would typically send the email to a newsletter service
-            // For this template, we'll just show the success modal
             successModal.classList.add('active');
             document.body.style.overflow = 'hidden';
-            
-            // Reset form
             newsletterForm.reset();
         });
-        
-        // Close Modal
-        closeModal.addEventListener('click', () => {
+    }
+
+    // Modal close logic
+    closeModal.addEventListener('click', () => {
+        successModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+
+    window.addEventListener('click', (e) => {
+        if (e.target === successModal) {
             successModal.classList.remove('active');
             document.body.style.overflow = 'auto';
-        });
+        }
+    });
+    
         
         // Close modal when clicking outside
         window.addEventListener('click', (e) => {
@@ -421,3 +456,4 @@
       chatbotToggle.removeEventListener('click', firstOpen);
     }, { once: true });
   });
+

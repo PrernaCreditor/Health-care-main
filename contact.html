@@ -950,28 +950,29 @@
                 <form id="wellnessForm">
                     <div class="form-group">
                         <div class="floating-label-group">
-                            <input type="text" id="name" class="form-control" placeholder=" " required>
+                      <input type="text" id="name" name="name" class="form-control" placeholder=" " required>
+
                             <label for="name" class="floating-label">Full Name</label>
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <div class="floating-label-group">
-                            <input type="email" id="email" class="form-control" placeholder=" " required>
+                            <input type="email" id="email" name="email" class="form-control" placeholder=" " required>
                             <label for="email" class="floating-label">Email Address</label>
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <div class="floating-label-group">
-                            <input type="tel" id="phone" class="form-control" placeholder=" ">
+                            <input type="tel" id="phone" name="phone" class="form-control" placeholder=" ">
                             <label for="phone" class="floating-label">Phone Number (optional)</label>
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <label for="program">Program Interest</label>
-                        <select id="program" class="form-control">
+                        <select id="program" name="program" class="form-control">
                             <option value="">Select a program (optional)</option>
                             <option value="detox">Cellular Detox</option>
                             <option value="weight">Metabolic Reset</option>
@@ -983,14 +984,14 @@
                     
                     <div class="form-group">
                         <div class="floating-label-group">
-                            <textarea id="message" class="form-control" placeholder=" " required></textarea>
+                            <textarea id="message" class="form-control" name="message" placeholder=" " required></textarea>
                             <label for="message" class="floating-label">Your Message</label>
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <div class="floating-label-group">
-                            <input type="text" id="wellness-goal" class="form-control" placeholder=" ">
+                            <input type="text" id="wellness-goal" name="goal" class="form-control" placeholder=" ">
                             <label for="wellness-goal" class="floating-label">Primary Wellness Goal (optional)</label>
                         </div>
                     </div>
@@ -1155,24 +1156,9 @@
     </footer>
 
     <script>
-        // Preloader
-        const preloader = document.getElementById('preloader');
-        const progressBar = document.getElementById('progressBar');
         
-        // Simulate loading progress
-        let progress = 0;
-        const interval = setInterval(() => {
-            progress += Math.random() * 10;
-            if (progress >= 100) {
-                progress = 100;
-                clearInterval(interval);
-                setTimeout(() => {
-                    preloader.style.opacity = '0';
-                    preloader.style.visibility = 'hidden';
-                }, 500);
-            }
-            progressBar.style.width = `${progress}%`;
-        }, 200);
+
+  // Simulate loading progress
 
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -1274,69 +1260,98 @@
         }
 
         // Form Submission
-        const wellnessForm = document.getElementById('wellnessForm');
-        
-        wellnessForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Get form values
-            const formData = new FormData(wellnessForm);
-            const data = Object.fromEntries(formData);
-            
-            // Here you would typically send the data to your server
-            console.log('Form submitted:', data);
-            
-            // Show success message
-            alert('Thank you for your message! Our wellness team will respond within 24 hours.');
-            wellnessForm.reset();
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const wellnessForm = document.getElementById('wellnessForm');
+
+    if (!wellnessForm) {
+      console.error("❌ #wellnessForm not found in the DOM.");
+      return;
+    }
+
+    // 📩 Handle form submission
+    wellnessForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(wellnessForm);
+      const data = Object.fromEntries(formData);
+
+      // Validate required fields
+      if (!data.name || !data.email || !data.message) {
+        alert("❌ Full Name, Email, and Message are required.");
+        return;
+      }
+
+      console.log("📤 Sending wellness inquiry:", data);
+
+      try {
+        const response = await fetch("http://localhost:8000/api/wellness", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
         });
 
-        // Load Google Maps
-        function loadMap() {
-            // In a real implementation, you would initialize Google Maps API here
-            const mapContainer = document.querySelector('.map-container');
-            mapContainer.innerHTML = `
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.158834518018!2d-122.4194!3d37.7749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDQ2JzI5LjYiTiAxMjLCsDI1JzA5LjkiVw!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" 
-                    width="100%" 
-                    height="100%" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy">
-                </iframe>
-            `;
-        }
-        
-        // Load map when scrolled into view
-        function checkMap() {
-            const mapSection = document.querySelector('.map-section');
-            const position = mapSection.getBoundingClientRect();
-            
-            if (position.top < window.innerHeight && position.bottom >= 0) {
-                loadMap();
-                window.removeEventListener('scroll', checkMap);
-            }
-        }
-        
-        window.addEventListener('scroll', checkMap);
-        window.addEventListener('load', checkMap);
+        const result = await response.json();
 
-        // Scroll animations
-        const animateElements = document.querySelectorAll('.animate');
-        
-        function checkScroll() {
-            animateElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (elementTop < windowHeight - 100) {
-                    element.style.animationPlayState = 'running';
-                }
-            });
+        if (response.ok) {
+          alert("✅ Thank you for your message! Our wellness team will respond within 24 hours.");
+          wellnessForm.reset();
+        } else {
+          console.error("❌ Server Error:", result);
+          alert("❌ Submission failed: " + (result.message || "Please try again later."));
         }
-        
-        window.addEventListener('scroll', checkScroll);
-        window.addEventListener('load', checkScroll);
+      } catch (err) {
+        console.error("❌ Network error:", err);
+        alert("❌ Network error. Please try again.");
+      }
+    });
+
+    // 🗺️ Google Map Lazy Load
+    function loadMap() {
+      const mapContainer = document.querySelector('.map-container');
+      if (!mapContainer) return;
+      mapContainer.innerHTML = `
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.158834518018!2d-122.4194!3d37.7749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDQ2JzI5LjYiTiAxMjLCsDI1JzA5LjkiVw!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" 
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+      `;
+    }
+
+    function checkMap() {
+      const mapSection = document.querySelector('.map-section');
+      if (!mapSection) return;
+
+      const position = mapSection.getBoundingClientRect();
+      if (position.top < window.innerHeight && position.bottom >= 0) {
+        loadMap();
+        window.removeEventListener('scroll', checkMap);
+      }
+    }
+
+    window.addEventListener('scroll', checkMap);
+    window.addEventListener('load', checkMap);
+
+    // 🎬 Scroll animation trigger
+    const animateElements = document.querySelectorAll('.animate');
+
+    function checkScroll() {
+      animateElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (elementTop < windowHeight - 100) {
+          element.style.animationPlayState = 'running';
+        }
+      });
+    }
+
+    window.addEventListener('scroll', checkScroll);
+    window.addEventListener('load', checkScroll);
+  });
+
     </script>
 </body>
 </html>

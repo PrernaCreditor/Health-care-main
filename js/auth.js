@@ -188,7 +188,9 @@ const healthUpdates = document.getElementById('healthUpdates').checked;
         loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Authenticating...';
         loginBtn.disabled = true;
 
-        const res = await fetch('http://localhost:8000/api/auth/login', {
+        // const res = await fetch('http://localhost:8000/api/auth/login', 
+        const res = await fetch('https://health-care-main.onrender.com/api/auth/login', 
+        {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -225,7 +227,7 @@ async function registerUser(name, email, password, healthUpdates) {
         signupBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating account...';
         signupBtn.disabled = true;
 
-        const res = await fetch('http://localhost:8000/api/auth/register', {
+        const res = await fetch('https://health-care-main.onrender.com/api/auth/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
