@@ -249,7 +249,7 @@
         console.log("📤 Sending:", data);
 
         try {
-            const res = await fetch("http://localhost:8000/api/contact", {
+            const res = await fetch("https://prernacreditor.github.io/Health-care-main/api/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data)
