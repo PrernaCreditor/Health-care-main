@@ -132,7 +132,7 @@
         const closeVideo = document.getElementById('closeVideo');
         
         videoThumbnail.addEventListener('click', () => {
-            videoFrame.src = 'https://www.youtube.com/embed/9No-FiEInLA?autoplay=1';
+            videoFrame.src = 'https://www.youtube.com/embed/jh5U5BnpGN8?si=V_bmlsg0UF3w4OIa';
             videoModal.classList.add('active');
             document.body.style.overflow = 'hidden';
         });

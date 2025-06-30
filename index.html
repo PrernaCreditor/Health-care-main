@@ -47,20 +47,29 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="floating-elements">
-            <div class="floating-element floating-element-1"></div>
-            <div class="floating-element floating-element-2"></div>
-            <div class="floating-element floating-element-3"></div>
+    <div class="floating-elements">
+        <div class="floating-element floating-element-1"></div>
+        <div class="floating-element floating-element-2"></div>
+        <div class="floating-element floating-element-3"></div>
+        <div class="floating-element floating-element-4"></div>
+        <div class="floating-element floating-element-5"></div>
+    </div>
+    <div class="particles" id="particles-js"></div>
+    <div class="hero-content">
+        <h1 class="animate" data-animate="fadeInUp">Transform Your Health With Premium Organic Solutions</h1>
+        <p class="animate delay-1" data-animate="fadeInUp">Experience the VitaPure+ difference with our exclusive organic wellness programs designed for optimal health and vitality.</p>
+        <div class="btn-group animate delay-2" data-animate="fadeInUp">
+            <a href="#programs" class="btn btn-primary pulse-on-hover">Explore Programs</a>
+            <a href="#video" class="btn btn-outline btn-glow">Watch Video</a>
         </div>
-        <div class="hero-content">
-            <h1 class="animate">Transform Your Health With Premium Organic Solutions</h1>
-            <p class="animate delay-1">Experience the VitaPure+ difference with our exclusive organic wellness programs designed for optimal health and vitality.</p>
-            <div class="btn-group animate delay-2">
-                <a href="#programs" class="btn btn-primary">Explore Programs</a>
-                <a href="#video" class="btn btn-outline">Watch Video</a>
-            </div>
+    </div>
+    <div class="scroll-indicator">
+        <div class="mouse">
+            <div class="scroller"></div>
         </div>
-    </section>
+        <span>Scroll Down</span>
+    </div>
+</section>
 
     <!-- Stats Counter -->
     <div class="stats">
@@ -814,5 +823,105 @@
         </div>
     </div>
 <script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.getElementById('particles-js')) {
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 60,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.3,
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 2,
+                        "size_min": 1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.2,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 1,
+                    "direction": "none",
+                    "random": true,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 0.5
+                        }
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    }
+});
+</script>
 </body>
+
+
 </html>

@@ -359,3 +359,39 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
+//Profile
+const profileTrigger = document.getElementById('profileTrigger');
+  const profileModal = document.getElementById('profileModal');
+  const closeBtn = document.getElementById('closeProfileModal');
+
+  // Open modal on click
+  profileTrigger.addEventListener('click', () => {
+    profileModal.style.display = 'block';
+  });
+
+  // Close modal on close button
+  closeBtn.addEventListener('click', () => {
+    profileModal.style.display = 'none';
+  });
+
+  // Close modal when clicking outside the modal content
+  window.addEventListener('click', (e) => {
+    if (e.target === profileModal) {
+      profileModal.style.display = 'none';
+    }
+  });
+
+   // Get the user object from localStorage
+  const user = JSON.parse(localStorage.getItem('user'));
+
+  if (user && user.name) {
+    // Optional: Just use first name
+    const firstName = user.name.split(' ')[0];
+    
+    // Update the welcome text
+    document.getElementById('welcomeUser').innerText = `Welcome Back, ${firstName}!`;
+  } else {
+    // Fallback text if user not logged in
+    document.getElementById('welcomeUser').innerText = 'Welcome Back!';
+  }
