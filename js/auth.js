@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const sliderDots = document.querySelectorAll('.slider-dot');
     const modalOverlay = document.querySelector('.modal-overlay');
     const forgotPasswordForm = document.getElementById('forgotPasswordForm');
-
+   
     let currentTipIndex = 0;
     let tipInterval;
 
@@ -334,4 +334,64 @@ async function resetPassword(email) {
     // Redirect to Google login (backend route)
     window.location.href = "https://health-care-main.onrender.com/auth/google";
   });
+// LinkedIn Login Button
+document.getElementById("linkedin-login-btn").addEventListener("click", () => {
+  window.location.href = "https://health-care-main.onrender.com/auth/linkedin";
+});
+
+
+
+//CheckBox
+const signupForm = document.getElementById('signupForm');
+
+if (signupForm) {
+    signupForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById('signupName').value;
+        const email = document.getElementById('signupEmail').value;
+        const password = document.getElementById('signupPassword').value;
+        const confirmPassword = document.getElementById('signupConfirm').value;
+        const acceptTerms = document.getElementById('acceptTerms').checked;
+        const healthUpdates = document.getElementById('healthUpdates').checked;
+
+        if (password !== confirmPassword) {
+            alert('Passwords do not match');
+            return;
+        }
+
+        if (!acceptTerms) {
+            alert('You must accept the terms and conditions');
+            return;
+        }
+
+        // Call backend signup API
+        await registerUser(name, email, password, healthUpdates);
+    });
+}
+
+async function registerUser(name, email, password, healthUpdates) {
+    try {
+        const response = await fetch('https://health-care-main.onrender.com/api/auth/signup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, password, healthUpdates })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            alert("Signup successful!");
+            window.location.href = '/login.html';
+        } else {
+            alert(data.msg || "Signup failed");
+        }
+    } catch (error) {
+        console.error(error);
+        alert("Something went wrong");
+    }
+}
+
+
+
 

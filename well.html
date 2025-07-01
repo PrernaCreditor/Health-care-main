@@ -21,7 +21,7 @@
                     <li data-tab="wellness"><i class="fas fa-chart-line"></i> Wellness Tracker</li>
                     <li data-tab="diet"><i class="fas fa-utensils"></i> Diet Planner</li>
                     <li data-tab="mental-health"><i class="fas fa-brain"></i> Mental Health</li>
-                    <li data-tab="shop"><i class="fas fa-shopping-bag"></i> Wellness Shop</li>
+                    <!-- <li data-tab="shop"><i class="fas fa-shopping-bag"></i> Wellness Shop</li> -->
                     <!-- <li data-tab="messages"><i class="fas fa-envelope"></i> Messages</li> -->
                     <li data-tab="profile"><i class="fas fa-user"></i> Profile</li>
                     <li data-tab="settings"><i class="fas fa-cog"></i> Settings</li>
@@ -502,181 +502,8 @@
     </div>
 </section>
 
-<!-- Wellness Shop Section -->
-<section class="tab-content" id="shop">
-    <div class="section-header">
-        <h1>Wellness Shop</h1>
-        <p>Quality products for your health journey</p>
-    </div>
-    
-    <div class="shop-controls">
-        <div class="shop-search">
-            <input type="text" placeholder="Search products...">
-            <button><i class="fas fa-search"></i></button>
-        </div>
-        <div class="shop-categories">
-            <button class="category-btn active">All</button>
-            <button class="category-btn">Vitamins</button>
-            <button class="category-btn">Fitness</button>
-            <button class="category-btn">Mindfulness</button>
-            <button class="category-btn">Nutrition</button>
-        </div>
-    </div>
-    
-    <div class="shop-grid">
-        <div class="product-card">
-            <div class="product-badge">Bestseller</div>
-            <img src="https://images.unsplash.com/photo-1599707367072-cd6ada2bc375" alt="Protein Powder">
-            <div class="product-info">
-                <h3>Plant-Based Protein</h3>
-                <p>Organic vegan protein powder with 20g per serving</p>
-                <div class="product-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                    <span>4.5 (128)</span>
-                </div>
-                <div class="product-price">
-                    <span class="current-price">$29.99</span>
-                    <span class="original-price">$39.99</span>
-                </div>
-            </div>
-            <button class="btn-add-to-cart">Add to Cart</button>
-        </div>
-        
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7" alt="Yoga Mat">
-            <div class="product-info">
-                <h3>Premium Yoga Mat</h3>
-                <p>Eco-friendly non-slip mat with carrying strap</p>
-                <div class="product-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <span>5.0 (87)</span>
-                </div>
-                <div class="product-price">
-                    <span class="current-price">$45.00</span>
-                </div>
-            </div>
-            <button class="btn-add-to-cart">Add to Cart</button>
-        </div>
-        
-        <!-- More product cards would go here -->
-    </div>
-    
-    <div class="cart-preview">
-        <h2><i class="fas fa-shopping-cart"></i> Your Cart <span class="cart-count">2</span></h2>
-        <div class="cart-items">
-            <div class="cart-item">
-                <img src="https://images.unsplash.com/photo-1599707367072-cd6ada2bc375" alt="Product">
-                <div class="cart-item-info">
-                    <h4>Plant-Based Protein</h4>
-                    <p>$29.99 × 1</p>
-                </div>
-                <button class="btn-remove-item"><i class="fas fa-times"></i></button>
-            </div>
-            <div class="cart-item">
-                <img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7" alt="Product">
-                <div class="cart-item-info">
-                    <h4>Premium Yoga Mat</h4>
-                    <p>$45.00 × 1</p>
-                </div>
-                <button class="btn-remove-item"><i class="fas fa-times"></i></button>
-            </div>
-        </div>
-        <div class="cart-total">
-            <span>Total:</span>
-            <span>$74.99</span>
-        </div>
-        <button class="btn-checkout">Proceed to Checkout</button>
-    </div>
-</section>
 
-<!-- Messages Section
-<section class="tab-content" id="messages">
-    <div class="section-header">
-        <h1>Messages</h1>
-        <p>Connect with wellness experts and community</p>
-    </div>
-    
-    <div class="messages-container">
-        <div class="conversation-list">
-            <div class="conversation active">
-                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Profile">
-                <div class="conversation-info">
-                    <h3>Dr. Emily Wilson</h3>
-                    <p>Nutritionist</p>
-                    <span class="last-message">About your meal plan questions...</span>
-                </div>
-                <span class="message-time">2h ago</span>
-            </div>
-            <div class="conversation unread">
-                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Profile">
-                <div class="conversation-info">
-                    <h3>Wellness Support</h3>
-                    <p>Customer Care</p>
-                    <span class="last-message">Your recent order has shipped!</span>
-                </div>
-                <span class="message-time">Yesterday</span>
-                <span class="unread-badge">3</span>
-            </div>
-            <div class="conversation">
-                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Profile">
-                <div class="conversation-info">
-                    <h3>Sarah Johnson</h3>
-                    <p>Meditation Group</p>
-                    <span class="last-message">Thanks for joining our session!</span>
-                </div>
-                <span class="message-time">3 days ago</span>
-            </div>
-        </div>
-        
-        <div class="message-view">
-            <div class="message-header">
-                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Profile">
-                <div class="recipient-info">
-                    <h3>Dr. Emily Wilson</h3>
-                    <p>Nutritionist</p>
-                </div>
-                <button class="btn-message-options"><i class="fas fa-ellipsis-v"></i></button>
-            </div>
-            
-            <div class="message-history">
-                <div class="message received">
-                    <div class="message-content">
-                        <p>Hi Sarah, I've reviewed your meal plan questions and have some suggestions.</p>
-                        <span class="message-time">10:30 AM</span>
-                    </div>
-                </div>
-                <div class="message sent">
-                    <div class="message-content">
-                        <p>Thank you! I was particularly wondering about protein alternatives.</p>
-                        <span class="message-time">10:45 AM</span>
-                    </div>
-                </div>
-                <div class="message received">
-                    <div class="message-content">
-                        <p>For plant-based options, I'd recommend lentils, quinoa, and tempeh as great sources.</p>
-                        <span class="message-time">11:02 AM</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="message-compose">
-                <textarea placeholder="Type your message..."></textarea>
-                <div class="compose-actions">
-                    <button class="btn-attach"><i class="fas fa-paperclip"></i></button>
-                    <button class="btn-send">Send <i class="fas fa-paper-plane"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> -->
+
 
 <!-- Profile Section -->
 <section class="tab-content" id="profile">
@@ -690,7 +517,7 @@
             <div class="profile-header">
                 <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Profile" class="profile-photo">
                 <div class="profile-info">
-                    <h2>Sarah Johnson</h2>
+                    <h2>User</h2>
                     <p>Premium Member since June 2023</p>
                     <div class="profile-stats">
                         <div class="stat">

@@ -213,153 +213,6 @@ playBtn.addEventListener('click', function() {
     }
 });
 
-// Shopping Cart Functionality
-let cart = [];
-
-// Add to cart functionality
-document.querySelectorAll('.btn-add-to-cart').forEach(button => {
-    button.addEventListener('click', function() {
-        const productCard = this.closest('.product-card');
-        const product = {
-            id: productCard.dataset.id || Math.random().toString(36).substr(2, 9),
-            name: productCard.querySelector('h3').textContent,
-            price: parseFloat(productCard.querySelector('.current-price').textContent.replace('$', '')),
-            image: productCard.querySelector('img').src,
-            quantity: 1
-        };
-        
-        addToCart(product);
-    });
-});
-
-function addToCart(product) {
-    const existingItem = cart.find(item => item.id === product.id);
-    
-    if (existingItem) {
-        existingItem.quantity += 1;
-    } else {
-        cart.push(product);
-    }
-    
-    updateCartUI();
-    showCartPreview();
-}
-
-function removeFromCart(productId) {
-    cart = cart.filter(item => item.id !== productId);
-    updateCartUI();
-}
-
-function updateCartUI() {
-    // Update cart count
-    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-    document.querySelectorAll('.cart-count, .floating-cart-badge').forEach(el => {
-        el.textContent = totalItems;
-    });
-    
-    // Update cart preview
-    const cartItemsContainer = document.querySelector('.cart-items');
-    const cartTotalElement = document.querySelector('.cart-total span:last-child');
-    
-    if (cart.length === 0) {
-        cartItemsContainer.innerHTML = '<p class="empty-cart">Your cart is empty</p>';
-        cartTotalElement.textContent = '$0.00';
-        return;
-    }
-    
-    cartItemsContainer.innerHTML = '';
-    let total = 0;
-    
-    cart.forEach(item => {
-        const itemTotal = item.price * item.quantity;
-        total += itemTotal;
-        
-        const cartItemElement = document.createElement('div');
-        cartItemElement.className = 'cart-item';
-        cartItemElement.innerHTML = `
-            <img src="${item.image}" alt="${item.name}">
-            <div class="cart-item-info">
-                <h4>${item.name}</h4>
-                <p>$${item.price.toFixed(2)} × ${item.quantity}</p>
-            </div>
-            <button class="btn-remove-item" data-id="${item.id}">
-                <i class="fas fa-times"></i>
-            </button>
-        `;
-        
-        cartItemsContainer.appendChild(cartItemElement);
-    });
-    
-    cartTotalElement.textContent = `$${total.toFixed(2)}`;
-    
-    // Add event listeners to remove buttons
-    document.querySelectorAll('.btn-remove-item').forEach(button => {
-        button.addEventListener('click', function() {
-            removeFromCart(this.dataset.id);
-        });
-    });
-}
-
-// Cart preview toggle
-const cartPreview = document.querySelector('.cart-preview');
-const floatingCartBtn = document.createElement('div');
-floatingCartBtn.className = 'floating-cart-btn';
-floatingCartBtn.innerHTML = '<i class="fas fa-shopping-cart"></i><span class="floating-cart-badge">0</span>';
-document.body.appendChild(floatingCartBtn);
-
-floatingCartBtn.addEventListener('click', function() {
-    cartPreview.classList.toggle('active');
-});
-
-function showCartPreview() {
-    cartPreview.classList.add('active');
-    setTimeout(() => {
-        if (!cartPreview.matches(':hover') && !floatingCartBtn.matches(':hover')) {
-            cartPreview.classList.remove('active');
-        }
-    }, 3000);
-}
-
-// Category filtering
-document.querySelectorAll('.category-btn').forEach(button => {
-    button.addEventListener('click', function() {
-        document.querySelectorAll('.category-btn').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        this.classList.add('active');
-        
-        const category = this.textContent.toLowerCase();
-        filterProducts(category);
-    });
-});
-
-function filterProducts(category) {
-    const allProducts = document.querySelectorAll('.product-card');
-    
-    allProducts.forEach(product => {
-        if (category === 'all' || product.dataset.category === category) {
-            product.style.display = 'block';
-        } else {
-            product.style.display = 'none';
-        }
-    });
-}
-
-// Initialize
-updateCartUI();
-//logout functionality
-document.addEventListener('DOMContentLoaded', function () {
-    const logoutBtn = document.getElementById('logoutBtn');
-    if (logoutBtn) {
-        logoutBtn.addEventListener('click', function () {
-            // Optional: clear any login session or token here
-
-            // Redirect to index.html
-            window.location.href = 'index.html';
-        });
-    }
-});
-
 //Profile
 const profileTrigger = document.getElementById('profileTrigger');
   const profileModal = document.getElementById('profileModal');
@@ -395,3 +248,56 @@ const profileTrigger = document.getElementById('profileTrigger');
     // Fallback text if user not logged in
     document.getElementById('welcomeUser').innerText = 'Welcome Back!';
   }
+
+
+ //Logout
+ document.addEventListener('DOMContentLoaded', () => {
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', () => {
+        // Clear user data from localStorage
+        localStorage.removeItem('user');
+        localStorage.removeItem('token'); // if you're storing token
+
+        // Optional: clear all
+        // localStorage.clear();
+
+        // Redirect to index.html
+        window.location.href = 'index.html';
+      });
+    } else {
+      console.warn('Logout button not found.');
+    }
+  });
+  //Profile Data Fetching
+  document.addEventListener('DOMContentLoaded', () => {
+    const token = localStorage.getItem('token'); // You should store JWT token in localStorage after login
+    if (!token) {
+      console.warn('User not logged in');
+      return;
+    }
+
+    fetch('https://health-care-main.onrender.com/api/user/me', {
+      method: 'GET',
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to fetch user data');
+      }
+      return response.json();
+    })
+    .then(user => {
+      document.querySelector('.profile-name').textContent = user.name;
+      document.querySelector('.detail-value.email').textContent = user.email;
+      document.querySelector('.detail-value.location').textContent = user.location || 'Not set';
+      document.querySelector('.detail-value.birthday').textContent = user.birthday || 'Not set';
+      document.querySelector('.detail-value.goals').textContent = user.healthGoals || 'Not set';
+    })
+    .catch(error => {
+      console.error('Error loading profile:', error);
+    });
+  });
